@@ -15,35 +15,37 @@ Management is configured at startup (by default WASD or arrows). Doors open and 
 
 
 
-![alt_text](images/SCP-snaulX0.png "image_tooltip")
+![MTF Card](images/mtf-card.png)
 
 
 _Second card - card of MTF. In order to enter a room with this card, you need to have a scientist card or catch luck when SCPs themselves open the door_
 
 
 
-![alt_text](images/SCP-snaulX1.png "image_tooltip")
+![O5 Card](images/o5-card.png)
 
 
-_Last card - card of O5. It can only be accessed with an MTF access level and detonating a warhead (at the top, as you can see its countdown) _
+_Last card - card of O5. It can only be accessed with an MTF access level and detonating a warhead (at the top, as you can see its countdown)_
 
 
 
-![alt_text](images/SCP-snaulX2.png "image_tooltip")
+![Scientist Card](images/scientist-card.png)
 
 
 _The first card is the scientist’s card. You can enter with a zero level of tolerance_
 
 
 
-![alt_text](images/SCP-snaulX3.png "image_tooltip")
+![SCP-096](images/scp096.png)
 
 
 _SCP-096 (On background exit gate)_
 
 
 
-![alt_text](images/SCP-snaulX4.png "image_tooltip")
+![SCP-173](images/scp173.png)
 
 
-_SCP-173 (On background enter to containment zone of SCP-096)_
+_SCP-173 (On background enter to containment zone of SCP-096)_  
+
+**All info was take from [Documentation and Instruction for this Game](https://docs.google.com/document/d/18c7CPUubT0VBaM5hC2Ewlm473kigtDTfYbinHRcn7xk/edit?usp=sharing)**
