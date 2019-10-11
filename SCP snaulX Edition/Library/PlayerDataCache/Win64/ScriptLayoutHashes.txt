@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/User/Desktop/snaulX/SCP snaulX Edition/build/SCP snaulX Edition.exe
+C:/Users/User/Desktop/snaulX/scp-snaulx-edition/SCP snaulX Edition/build/SCP snaulX Edition.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
