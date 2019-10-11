@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: f420dc568de0b2248be29d45b7989dd3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature1
+    100004: Bone
+    100006: Bone_002
+    100008: Bone_007
+    100010: Bone_008
+    100012: Bone_009
+    100014: Bone_010
+    100016: Bone_011
+    100018: Bone_012
+    100020: Bone_013
+    100022: Bone_014
+    100024: Bone_015
+    100026: Bone_016
+    100028: Bone_017
+    100030: Bone_018
+    100032: Bone_019
+    100034: Bone_020
+    100036: Bone_021
+    100038: Bone_021_end
+    100040: Bone_022
+    100042: Bone_022_end
+    100044: Bone_023
+    100046: Bone_023_end
+    100048: Bone_024
+    100050: Bone_024_end
+    100052: Eyes
+    100054: Eyes_end
+    100056: head
+    100058: Lbrow
+    100060: Lbrow_end
+    100062: Leyelid
+    100064: Leyelid_end
+    100066: lowerjaw
+    100068: lowerjaw_001
+    100070: lowerjaw_001_end
+    100072: neck
+    100074: pelvis
+    100076: Rbrow
+    100078: Rbrow_end
+    100080: Reyelid
+    100082: Reyelid_end
+    100084: ripcage
+    100086: Scene_Root
+    100088: Scene_Root1
+    100090: Scene_Root2
+    100092: Scene_Root3
+    100094: SCP096
+    100096: scp096
+    100098: SCP096_end
+    100100: scp096_skeleton
+    100102: Skeleton
+    100104: upperjaw
+    100106: upperjaw_end
+    400000: //RootNode
+    400002: Armature1
+    400004: Bone
+    400006: Bone_002
+    400008: Bone_007
+    400010: Bone_008
+    400012: Bone_009
+    400014: Bone_010
+    400016: Bone_011
+    400018: Bone_012
+    400020: Bone_013
+    400022: Bone_014
+    400024: Bone_015
+    400026: Bone_016
+    400028: Bone_017
+    400030: Bone_018
+    400032: Bone_019
+    400034: Bone_020
+    400036: Bone_021
+    400038: Bone_021_end
+    400040: Bone_022
+    400042: Bone_022_end
+    400044: Bone_023
+    400046: Bone_023_end
+    400048: Bone_024
+    400050: Bone_024_end
+    400052: Eyes
+    400054: Eyes_end
+    400056: head
+    400058: Lbrow
+    400060: Lbrow_end
+    400062: Leyelid
+    400064: Leyelid_end
+    400066: lowerjaw
+    400068: lowerjaw_001
+    400070: lowerjaw_001_end
+    400072: neck
+    400074: pelvis
+    400076: Rbrow
+    400078: Rbrow_end
+    400080: Reyelid
+    400082: Reyelid_end
+    400084: ripcage
+    400086: Scene_Root
+    400088: Scene_Root1
+    400090: Scene_Root2
+    400092: Scene_Root3
+    400094: SCP096
+    400096: scp096
+    400098: SCP096_end
+    400100: scp096_skeleton
+    400102: Skeleton
+    400104: upperjaw
+    400106: upperjaw_end
+    2100000: SCP096.bmp
+    2100002: SCP096EYES.bmp
+    4300000: scp096
+    9500000: //RootNode
+    13700000: scp096
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
