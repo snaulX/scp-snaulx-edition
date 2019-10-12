@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButton("Cancel")) SceneManager.LoadScene(0);
         blinking--;
         if (blinking < -10)
         {
@@ -37,14 +38,8 @@ public class Player : MonoBehaviour
         if (hp <= 0)
         {
             //Destroy(gameObject);
-            if (Input.GetKey(KeyCode.R))
-            {
-                SceneManager.LoadScene(1);
-            }
-            else if (Input.GetKey(KeyCode.X))
-            {
-                Application.Quit();
-            }
+            if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene(1);
+            else if (Input.GetKey(KeyCode.X))  Application.Quit();
         }
         else
         {
