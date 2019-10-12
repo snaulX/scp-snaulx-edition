@@ -5,14 +5,24 @@ Management is configured at startup (by default WASD or arrows). Doors open and 
 
 
 
-
+Fixes and changes with the OLD version:
 *   SCP motion fixed
 *   Partially fixed bug with door in SCP-173's containment chamber (bug described above)
 *   Player speed independent of FPS
 *   Detonation and explosion sounds of alpha warheads added
 *   SCP deaths added during alpha warhead explosion
-*   Now there is no NullReferenceException when a player dies
+*   Now there is no NullReferenceException when a player dies  
 
+
+0.1.1:
+*   Now cards have their own color depending on the level:
+    *   _yellow_- card of scientist
+    *   _blue_- card of MTF
+    *   _black - card of O5
+*   Add main menu with two buttons:
+    *   _New Game_- start new game
+    *   _Exit_- exit from the game
+*   Now during the game, when you click the button marked in Input / Cancel (marked in the start configuration) (usually this is Esc), the main menu appears
 
 
 ![MTF Card](images/mtf-card.png)
