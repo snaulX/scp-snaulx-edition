@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
             //Destroy(gameObject);
             if (Input.GetKey(KeyCode.R))
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene(1);
             }
             else if (Input.GetKey(KeyCode.X))
             {
