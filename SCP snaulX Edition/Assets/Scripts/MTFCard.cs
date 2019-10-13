@@ -16,7 +16,7 @@ public class MTFCard : MonoBehaviour
         GameObject player = GameObject.Find("player");
         if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3
             && -3 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 3
-            && Input.GetKey(KeyCode.E))
+            && Input.GetKeyDown(KeyCode.E))
         {
             Player pl = player.GetComponent<Player>();
             if (pl.level < SecurityLevel.MTF)

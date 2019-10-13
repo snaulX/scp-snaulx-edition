@@ -19,7 +19,7 @@ public class LockScp173Button : MonoBehaviour
             GameObject player = GameObject.Find("player");
             if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3 
                 && -3 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 3
-                && Input.GetKey(KeyCode.E))
+                && Input.GetKeyDown(KeyCode.E))
             {
                 Door[] doors = GameObject.Find("big-door").GetComponentsInChildren<Door>();
                 foreach (Door door in doors)

@@ -23,7 +23,9 @@ public class BombButton : MonoBehaviour
         AudioSource[] audio = GetComponents<AudioSource>();
         if (seconds == -100f)
         {
-            if (-2 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 2 && Input.GetKey(KeyCode.E))
+            if (-2 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 2
+                && -2 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 2
+                && Input.GetKeyDown(KeyCode.E))
             {
                 GameObject[] doorobjs = GameObject.FindGameObjectsWithTag("door");
                 foreach (GameObject obj in doorobjs)

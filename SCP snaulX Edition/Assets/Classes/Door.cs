@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
             GameObject player = GameObject.Find("player");
             if (-4 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 4
                 && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4
-                && Input.GetKey(KeyCode.E))
+                && Input.GetKeyDown(KeyCode.E))
             {
                 if (player.GetComponent<Player>().level >= level)
                 {

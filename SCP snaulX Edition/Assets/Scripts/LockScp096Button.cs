@@ -17,7 +17,9 @@ public class LockScp096Button : MonoBehaviour
         try
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (-5 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 5 && Input.GetKey(KeyCode.E))
+            if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3
+                && -3 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 3
+                && Input.GetKeyDown(KeyCode.E))
             {
                 Door door = GameObject.Find("door096").GetComponent<Door>();
                 if (door.Lock) door.Unlock();
