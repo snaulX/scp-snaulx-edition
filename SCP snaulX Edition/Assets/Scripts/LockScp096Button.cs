@@ -22,6 +22,7 @@ public class LockScp096Button : MonoBehaviour
                 && Input.GetKeyDown(KeyCode.E))
             {
                 Door door = GameObject.Find("door096").GetComponent<Door>();
+                GetComponent<AudioSource>().Play();
                 if (door.Lock) door.Unlock();
                 else door.Lockdown();
             }
