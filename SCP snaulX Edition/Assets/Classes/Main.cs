@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum LevelDifficulty
+{
+    Safe,
+    Euclid,
+    Keter
+}
+
 public class Main : MonoBehaviour
 {
     public float updateInterval = 0.5F;
