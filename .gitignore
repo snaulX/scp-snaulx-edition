@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-SCP snaulX Edition/[Ll]ibrary/
-SCP snaulX Edition/[Tt]emp/
-SCP snaulX Edition/[Oo]bj/
-SCP snaulX Edition/[Bb]uild/
-SCP snaulX Edition/[Bb]uilds/
-SCP snaulX Edition/[Ll]ogs/
-SCP snaulX Edition/[Mm]emoryCaptures/
+SCP snaulX Edition/[Ll]ibrary/*
+SCP snaulX Edition/[Tt]emp/*
+SCP snaulX Edition/[Oo]bj/*
+SCP snaulX Edition/[Bb]uild/*
+SCP snaulX Edition/[Bb]uilds/*
+SCP snaulX Edition/[Ll]ogs/*
+SCP snaulX Edition/[Mm]emoryCaptures/*
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -70,3 +70,4 @@ crashlytics-build.properties
 *.zip
 *.asset
 *.log
+*.dwlt
