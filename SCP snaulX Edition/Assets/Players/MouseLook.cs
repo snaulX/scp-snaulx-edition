@@ -11,12 +11,10 @@ public class MouseLook : MonoBehaviour
     {
         get => transform.position;
     }
-    public float sensivity, vert, _rotationX;
+    public float _rotationX;
     // Use this for initialization
     void Start()
     {
-        sensivity = 6f;
-        vert = 45f;
         _rotationX = 0f;
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null) body.freezeRotation = true;
@@ -25,9 +23,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rotationX -= Input.GetAxis("Mouse Y") * sensivity;
-        _rotationX = Mathf.Clamp(_rotationX, -vert, vert);
-        transform.Rotate(0, Input.GetAxis("Mouse X") * sensivity, 0);
-        Transform.localEulerAngles = new Vector3(_rotationX, Transform.localEulerAngles.y + (Input.GetAxis("Mouse X") * sensivity), 0f);
+        _rotationX -= Input.GetAxis("Mouse Y") * 6f;
+        _rotationX = Mathf.Clamp(_rotationX, -30f, 60f);
+        transform.Rotate(0, Input.GetAxis("Mouse X") * 6f, 0);
+        Transform.localEulerAngles = new Vector3(_rotationX - 0.1f, Transform.localEulerAngles.y + (Input.GetAxis("Mouse X") * 6f));
     }
 }
