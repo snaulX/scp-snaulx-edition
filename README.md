@@ -1,13 +1,13 @@
 # SCP snaulX Edition
 **SCP snaulX Edition** is a maze game about SCP ([http://scp-wiki.net/](http://scp-wiki.net/)). In it, you play as a [D-class](http://scp-wiki.net/security-clearance-levels#toc11) employee who was left alone in a complex with nothing with two monsters ([SCP-173](http://scp-wiki.net/scp-173) and [SCP-096](http://scp-wiki.net/scp-096)) (they currently have no abnormal abilities in the game). In order to get out of the complex, the player needs to find cards with which you can open the doors with a high level of access, blow up the complex, find the last card with which you can escape from the complex and escape from it. In this game, you can also completely close the SCP containment chamber.
 
-Management is configured at startup (by default WASD or arrows). Doors open and cards are taken and buttons are pressed on E. **Warning bug!** If you are unable to exit SCP-173's containment chamber, then go to the left corner of the chamber and press E twice. If the door does not open, then re-enter the left corner of the chamber and press E until it opens. In order to check whether it opened or not, you need to go to the door itself and press E, just like that it does not open.
+Management is configured at startup (by default WASD or arrows). Doors open and cards are taken and buttons are pressed on E.
 
 
 
-Fixes and changes with the OLD version:
+Fixes and changes with the OLD version (0.1.0):
 *   SCP motion fixed
-*   Partially fixed bug with door in SCP-173's containment chamber (bug described above)
+*   Partially fixed bug with door in SCP-173's containment chamber
 *   Player speed independent of FPS
 *   Detonation and explosion sounds of alpha warheads added
 *   SCP deaths added during alpha warhead explosion
@@ -31,7 +31,7 @@ Fixes and changes with the OLD version:
     *   _Euclid_ - normal
     *   _Keter_ - hard
 *   Add sounds for buttons of lock&unlock doors of SCP contaiment zones
-*  Some fixes
+*  Also fix of bugs
 
 
 ![MTF Card](images/mtf-card.png)
