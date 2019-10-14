@@ -18,11 +18,20 @@ Fixes and changes with the OLD version:
 *   Now cards have their own color depending on the level:
     *   _yellow_- card of scientist
     *   _blue_- card of MTF
-    *   _black - card of O5
+    *   _black_ - card of O5
 *   Add main menu with two buttons:
     *   _New Game_- start new game
     *   _Exit_- exit from the game
 *   Now during the game, when you click the button marked in Input / Cancel (marked in the start configuration) (usually this is Esc), the main menu appears
+
+
+0.1.2:
+*   Add level of difficulty (change in the main menu). It`s change speed and hp of player and scps and change kill points of scps:
+    *   _Safe_ - easy
+    *   _Euclid_ - normal
+    *   _Keter_ - hard
+*   Add sounds for buttons of lock&unlock doors of SCP contaiment zones
+*  Some fixes
 
 
 ![MTF Card](images/mtf-card.png)
