@@ -44,7 +44,9 @@ public class Scp: MonoBehaviour
         if (-2 < enemy.transform.position.z - position.z && enemy.transform.position.z - position.z < 2
             && -2 < enemy.transform.position.x - position.x && enemy.transform.position.x - position.x < 2)
         {
-            enemy.GetComponent<Player>().hp = (short)(enemy.GetComponent<Player>().hp - kill_points);
+            Player pl = enemy.GetComponent<Player>();
+            if (pl.hp > 0)
+                pl.hp = (short)(pl.hp - kill_points);
         }
     }
 }

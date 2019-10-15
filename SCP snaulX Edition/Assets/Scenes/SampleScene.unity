@@ -701,11 +701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 15aafa0d6d2da8448be54709274ca862, type: 3}
       propertyPath: m_TagString
-      value: door
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 15aafa0d6d2da8448be54709274ca862, type: 3}
       propertyPath: m_TagString
-      value: door
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15aafa0d6d2da8448be54709274ca862, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2624,7 +2624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e229ab84e98054f408a2757b17d37e70, type: 3}
       propertyPath: m_TagString
-      value: door
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e229ab84e98054f408a2757b17d37e70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5929,8 +5929,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b5c6334fd7d0ca844a2cd20a29fa7591, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
