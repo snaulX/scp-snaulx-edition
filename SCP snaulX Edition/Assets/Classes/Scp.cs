@@ -5,20 +5,10 @@ using System;
 public class Scp: MonoBehaviour
 {
     public float speed;
-    public short kill_points, hp;
+    public short damage, hp;
     public GameObject enemy
     {
-        get
-        {
-            try
-            {
-                return GameObject.FindWithTag("Player");
-            }
-            catch (NullReferenceException)
-            {
-                return GameObject.FindGameObjectWithTag("Player");
-            }
-        }
+        get => GameObject.FindWithTag("Player");
     }
     Vector3 position
     {
@@ -28,13 +18,13 @@ public class Scp: MonoBehaviour
     public Scp(): base()
     {
         hp = 0;
-        kill_points = 0;
+        damage = 0;
         speed = 0f;
     }
 
     public Scp(short kill_points, float speed, short hp)
     {
-        this.kill_points = kill_points;
+        this.damage = kill_points;
         this.speed = speed;
         this.hp = hp;
     }
@@ -46,7 +36,7 @@ public class Scp: MonoBehaviour
         {
             Player pl = enemy.GetComponent<Player>();
             if (pl.hp > 0)
-                pl.hp = (short)(pl.hp - kill_points);
+                pl.hp = (short)(pl.hp - damage);
         }
     }
 }

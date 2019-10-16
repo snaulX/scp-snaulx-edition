@@ -17,10 +17,12 @@ public class Scp173 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<AudioSource>().Play();
+        Debug.Log(GetComponent<AudioSource>());
+        GetComponents<AudioSource>()[0].Play();
         if (scp.hp <= 0)
             Destroy(gameObject);
         scp.Kill();
+        if (scp.enemy.GetComponent<Player>().hp <= 0) GetComponents<AudioSource>()[1].Play();
     }
 
     private void OnDestroy()

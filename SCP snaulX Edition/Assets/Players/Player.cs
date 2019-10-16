@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Cursor.visible = false;
         blinking = 300;
         characterController = GetComponent<CharacterController>();
         lvl = (LevelDifficulty) PlayerPrefs.GetInt("level_difficulty");
@@ -28,10 +29,10 @@ public class Player : MonoBehaviour
             hp = 300;
             speed = 16f;
             scp173.hp = 2000;
-            scp173.kill_points = 2000;
+            scp173.damage = 2000;
             scp173.speed = 14f;
             scp096.speed = 10f;
-            scp096.kill_points = 300;
+            scp096.damage = 300;
             scp096.hp = 1200;
         }
         else if (lvl == LevelDifficulty.Euclid)
@@ -39,10 +40,10 @@ public class Player : MonoBehaviour
             hp = 200;
             speed = 14f;
             scp173.hp = 3000;
-            scp173.kill_points = 3000;
+            scp173.damage = 3000;
             scp173.speed = 16f;
             scp096.speed = 11f;
-            scp096.kill_points = 450;
+            scp096.damage = 450;
             scp096.hp = 1400;
         }
         else
@@ -50,10 +51,10 @@ public class Player : MonoBehaviour
             hp = 100;
             speed = 12f;
             scp173.hp = 4000;
-            scp173.kill_points = 4000;
+            scp173.damage = 4000;
             scp173.speed = 18f;
             scp096.speed = 12f;
-            scp096.kill_points = 600;
+            scp096.damage = 600;
             scp096.hp = 1600;
         }
     }
@@ -87,7 +88,7 @@ public class Player : MonoBehaviour
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
             transform.Translate(movement);
             Transform t = GameObject.Find("Main Camera").transform;
-            t.position = new Vector3(pos.x, pos.y + 5.62f, pos.z);
+            t.position = new Vector3(pos.x + transform.rotation.x / 100, pos.y + 5.62f, pos.z + transform.rotation.z / 100);
             movement = Vector3.ClampMagnitude(movement, speed);
             movement = transform.TransformDirection(movement);
             characterController.Move(movement);
