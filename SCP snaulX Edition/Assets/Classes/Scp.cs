@@ -6,6 +6,7 @@ public class Scp: MonoBehaviour
 {
     public float speed;
     public short damage, hp;
+    public AudioSource death_audio;
     public GameObject enemy
     {
         get => GameObject.FindWithTag("Player");
@@ -24,7 +25,7 @@ public class Scp: MonoBehaviour
 
     public Scp(short kill_points, float speed, short hp)
     {
-        this.damage = kill_points;
+        damage = kill_points;
         this.speed = speed;
         this.hp = hp;
     }
@@ -36,7 +37,10 @@ public class Scp: MonoBehaviour
         {
             Player pl = enemy.GetComponent<Player>();
             if (pl.hp > 0)
+            {
+                death_audio.Play();
                 pl.hp = (short)(pl.hp - damage);
+            }
         }
     }
 }

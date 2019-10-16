@@ -7,22 +7,23 @@ public class Scp173 : MonoBehaviour
     Scp scp
     {
         get => GetComponent<Scp>();
+        set => GetComponent<Scp>();
     }
+    AudioSource walk;
     // Start is called before the first frame update
     void Start()
     {
-        
+        walk = GetComponents<AudioSource>()[0];
+        scp.death_audio = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetComponent<AudioSource>());
-        GetComponents<AudioSource>()[0].Play();
+        walk.Play();
         if (scp.hp <= 0)
             Destroy(gameObject);
         scp.Kill();
-        if (scp.enemy.GetComponent<Player>().hp <= 0) GetComponents<AudioSource>()[1].Play();
     }
 
     private void OnDestroy()
