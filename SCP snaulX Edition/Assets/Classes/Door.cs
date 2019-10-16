@@ -9,9 +9,11 @@ public class Door : MonoBehaviour
     float x, z;
     public SecurityLevel level;
     public bool Lock;
+    AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GameObject.Find("DoorSound").GetComponent<AudioSource>();
         x = transform.position.x;
         z = transform.position.z;
     }
@@ -38,6 +40,10 @@ public class Door : MonoBehaviour
                 {
                     Open();
                     seconds = 255;
+                }
+                else
+                {
+                    audio.Play();
                 }
             }
             else
@@ -84,12 +90,12 @@ public class Door : MonoBehaviour
 
     public void Unlock()
     {
-        Open();
         Lock = false;
+        Open();
     }
     public void Lockdown()
     {
-        Close();
         Lock = true;
+        Close();
     }
 }
