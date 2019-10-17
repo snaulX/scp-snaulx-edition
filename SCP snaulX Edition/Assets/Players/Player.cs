@@ -62,7 +62,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Cancel")) SceneManager.LoadScene(0);
+        if (Input.GetButton("Cancel"))
+        {
+            Cursor.visible = true;
+            SceneManager.LoadScene(0);
+        }
         blinking--;
         if (blinking < -10)
         {
