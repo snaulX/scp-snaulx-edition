@@ -38,7 +38,14 @@ public class Scp: MonoBehaviour
             Player pl = enemy.GetComponent<Player>();
             if (pl.hp > 0)
             {
-                death_audio.Play();
+                try
+                {
+                    death_audio.Play();
+                }
+                catch (UnassignedReferenceException)
+                {
+                    //просто нет музыки которая бы играла при смерти игрока, но смерть происходит
+                }
                 pl.hp = (short)(pl.hp - damage);
             }
         }
