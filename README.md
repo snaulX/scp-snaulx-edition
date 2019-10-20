@@ -33,6 +33,13 @@ Fixes and changes with the OLD version (0.1.0):
 *   Add sounds for buttons of lock&unlock doors of SCP contaiment zones
 *  Also fix of bugs
 
+0.1.3:
+* Add sounds when door level is highest level of player
+* Add monitors to rooms with buttons for lock&unlock SCP objects
+* In game player don`t see cursor
+* Add sound when SCP-173 kill player
+* Some fixes
+
 
 ![MTF Card](images/mtf-card.png)
 
