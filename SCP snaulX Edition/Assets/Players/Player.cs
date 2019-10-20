@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
             speed = 16f;
             scp173.hp = 2000;
             scp173.damage = 2000;
-            scp173.speed = 14f;
+            scp173.speed = 14.5f;
             scp096.speed = 10f;
             scp096.damage = 300;
             scp096.hp = 1200;
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
             transform.Translate(movement);
             Transform t = GameObject.Find("Main Camera").transform;
-            t.position = new Vector3(pos.x + transform.rotation.x, pos.y + 5.62f, pos.z + transform.rotation.z);
+            t.position = new Vector3(pos.x + transform.rotation.x / 100, pos.y + 5.62f, pos.z + transform.rotation.z / 100);
             movement = Vector3.ClampMagnitude(movement, speed);
             movement = transform.TransformDirection(movement);
             characterController.Move(movement);

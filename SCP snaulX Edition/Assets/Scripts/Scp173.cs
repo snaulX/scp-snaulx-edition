@@ -20,6 +20,8 @@ public class Scp173 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        walk.Play();
+        Debug.Log(walk.isPlaying);
         if (scp.hp <= 0)
             Destroy(gameObject);
         scp.Kill();
