@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public byte seconds, axis;
+    public byte axis;
+    public short seconds;
     float x, z;
     public SecurityLevel level;
     public bool Lock;

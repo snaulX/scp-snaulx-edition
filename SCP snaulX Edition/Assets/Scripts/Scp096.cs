@@ -25,4 +25,10 @@ public class Scp096 : MonoBehaviour
     {
         Debug.Log("scp 096 is die");
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        scp.Kill();
+        transform.Rotate(0, Random.Range(-100, 100), 0);
+    }
 }

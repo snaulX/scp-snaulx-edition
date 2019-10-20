@@ -42,7 +42,7 @@ public class Scp: MonoBehaviour
                 {
                     death_audio.Play();
                 }
-                catch (UnassignedReferenceException)
+                catch (Exception)
                 {
                     //просто нет музыки которая бы играла при смерти игрока, но смерть происходит
                 }

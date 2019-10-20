@@ -48,9 +48,9 @@ public class AI : MonoBehaviour
                 }
                 finally
                 {
-                    /*if (PlayerPrefs.GetInt("level_difficulty") == (int)LevelDifficulty.Keter && target.name == "player")
-                        transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 5.6f, target.transform.position.z));
-                    else*/
+                    if (PlayerPrefs.GetInt("level_difficulty") == (int)LevelDifficulty.Keter && target.name == "player")
+                        transform.forward = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+                    else
                         transform.Rotate(0, UnityEngine.Random.Range(-100, 100), 0);
                 }
             }
