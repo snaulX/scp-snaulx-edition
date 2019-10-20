@@ -48,7 +48,10 @@ public class AI : MonoBehaviour
                 }
                 finally
                 {
-                    transform.Rotate(0, UnityEngine.Random.Range(-100, 100), 0);
+                    /*if (PlayerPrefs.GetInt("level_difficulty") == (int)LevelDifficulty.Keter && target.name == "player")
+                        transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 5.6f, target.transform.position.z));
+                    else*/
+                        transform.Rotate(0, UnityEngine.Random.Range(-100, 100), 0);
                 }
             }
         }

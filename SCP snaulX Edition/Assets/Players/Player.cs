@@ -13,12 +13,14 @@ public class Player : MonoBehaviour
     {
         get => transform.position;
     }
+    new AudioSource audio;
     CharacterController characterController;
     public SecurityLevel level;
     LevelDifficulty lvl;
     // Use this for initialization
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         Cursor.visible = false;
         blinking = 300;
         characterController = GetComponent<CharacterController>();
@@ -89,7 +91,8 @@ public class Player : MonoBehaviour
                 if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
                 else if (Input.GetKey(KeyCode.X)) Application.Quit();
             }
-            Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
+            float x = Input.GetAxis("Vertical"), z = Input.GetAxis("Horizontal");
+            Vector3 movement = new Vector3(z * speed * Time.deltaTime, 0f, x * speed * Time.deltaTime);
             transform.Translate(movement);
             Transform t = GameObject.Find("Main Camera").transform;
             t.position = new Vector3(pos.x + transform.rotation.x / 100, pos.y + 5.62f, pos.z + transform.rotation.z / 100);
