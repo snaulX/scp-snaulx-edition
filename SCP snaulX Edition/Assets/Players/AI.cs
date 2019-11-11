@@ -35,23 +35,17 @@ public class AI : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(ray, 0.75f, out hit))
         {
+            scp.Kill();
             GameObject target = hit.transform.gameObject;
+            if (target.tag == "Wall")
+            {
+                transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
+            }
             if (hit.distance < 3.0f)
             {
-                try
+                if (target.GetComponent<Door>())
                 {
                     target.GetComponent<Door>().Open();
-                }
-                catch (NullReferenceException)
-                {
-                    scp.Kill();
-                }
-                finally
-                {
-                    if (PlayerPrefs.GetInt("level_difficulty") == (int)LevelDifficulty.Keter && target.name == "player")
-                        transform.forward = new Vector3(target.transform.position.x, 0, target.transform.position.z);
-                    else
-                        transform.Rotate(0, UnityEngine.Random.Range(-100, 100), 0);
                 }
             }
         }

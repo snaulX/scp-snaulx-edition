@@ -6,7 +6,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public byte axis;
-    public short seconds;
+    public float seconds;
     float x, z;
     public SecurityLevel level;
     public bool Lock;
@@ -22,13 +22,13 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (seconds == 0)
+        if (seconds <= 0 && seconds != -1)
         {
             Close();
         }
         else
         {
-            seconds--;
+            seconds = seconds - Time.deltaTime * 80;
         }
         try
         {
@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
                 if (player.GetComponent<Player>().level >= level)
                 {
                     Open();
-                    seconds = 255;
+                    seconds = 100;
                 }
                 else
                 {
@@ -56,7 +56,7 @@ public class Door : MonoBehaviour
                     if (level < SecurityLevel.MTF)
                     {
                         Open();
-                        seconds = 255;
+                        seconds = 100;
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class Door : MonoBehaviour
     {
         if (!Lock)
         {
-            for (float i = 0; i < 5.4f; i += 0.001f)
+            for (float i = 0; i < 6f; i += 0.001f)
             {
                 if (axis == 0) transform.position = new Vector3(x - i, transform.position.y, z);
                 else if (axis == 1) transform.position = new Vector3(-x - i, transform.position.y, z);
