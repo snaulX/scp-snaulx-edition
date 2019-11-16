@@ -50,8 +50,9 @@ public class Door : MonoBehaviour
             else
             {
                 player = GameObject.FindGameObjectWithTag("scp");
-                if (-5 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 5
-                && -5 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 5)
+                Debug.Log(player.transform.position + " " + transform.position);
+                if (-4 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 4
+                && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4)
                 {
                     if (level < SecurityLevel.MTF)
                     {

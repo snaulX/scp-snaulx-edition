@@ -37,16 +37,29 @@ public class AI : MonoBehaviour
         {
             scp.Kill();
             GameObject target = hit.transform.gameObject;
-            if (target.tag == "Wall")
+            if (hit.distance < 3.0f && hit.distance > -1f)
             {
-                transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
-            }
-            if (hit.distance < 3.0f)
-            {
-                if (target.GetComponent<Door>())
+                if (target.tag == "Wall")
                 {
-                    target.GetComponent<Door>().Open();
+                    transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
                 }
+                else if (target.tag == "Player")
+                {
+                    transform.Rotate(new Vector3(target.transform.position.x, 0));
+                }
+                try
+                {
+                    Door door = target.GetComponent<Door>();
+                    if (!door.Lock)
+                    {
+                        door.Open();
+                    }
+                    else
+                    {
+                        transform.Rotate(0, UnityEngine.Random.Range(-90, 90), 0);
+                    }
+                }
+                catch (NullReferenceException) { }
             }
         }
     }
