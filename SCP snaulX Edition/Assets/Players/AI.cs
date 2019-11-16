@@ -43,9 +43,10 @@ public class AI : MonoBehaviour
                 {
                     transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
                 }
-                else if (target.tag == "Player")
+                if (target.tag == "glass")
                 {
-                    transform.Rotate(new Vector3(target.transform.position.x, 0));
+                    transform.LookAt(target.transform);
+                    transform.Translate(3f, 0f, 0f);
                 }
                 try
                 {

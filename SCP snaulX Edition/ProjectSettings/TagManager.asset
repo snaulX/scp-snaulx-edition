@@ -8,6 +8,7 @@ TagManager:
   - scp
   - d-class
   - door
+  - glass
   layers:
   - Default
   - TransparentFX

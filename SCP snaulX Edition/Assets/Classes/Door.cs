@@ -40,7 +40,6 @@ public class Door : MonoBehaviour
                 if (player.GetComponent<Player>().level >= level)
                 {
                     Open();
-                    seconds = 100;
                 }
                 else
                 {
@@ -57,7 +56,6 @@ public class Door : MonoBehaviour
                     if (level < SecurityLevel.MTF)
                     {
                         Open();
-                        seconds = 100;
                     }
                 }
             }
@@ -87,6 +85,7 @@ public class Door : MonoBehaviour
                 else if (axis == 2) transform.position = new Vector3(x, transform.position.y, z - i);
                 else transform.position = new Vector3(x, transform.position.y, -z - i);
             }
+            seconds = 100;
         }
     }
 
