@@ -31,12 +31,13 @@ public class AI : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement, scp.speed);
         movement = transform.TransformDirection(movement);
         GetComponent<CharacterController>().Move(movement);
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
         RaycastHit hit;
-        if (Physics.SphereCast(ray, 0.75f, out hit))
+        if (Physics.SphereCast(ray, 1.7f, out hit))
         {
             scp.Kill();
             GameObject target = hit.transform.gameObject;
+            Debug.Log(target.name + ' ' + name);
             if (hit.distance < 3.0f && hit.distance > -1f)
             {
                 if (target.tag == "Wall")
@@ -51,13 +52,13 @@ public class AI : MonoBehaviour
                 try
                 {
                     Door door = target.GetComponent<Door>();
-                    if (!door.Lock)
+                    if (!door.Lock && door.level < SecurityLevel.MTF)
                     {
                         door.Open();
                     }
                     else
                     {
-                        transform.Rotate(0, UnityEngine.Random.Range(-90, 90), 0);
+                        transform.Rotate(0, UnityEngine.Random.Range(-120, 120), 0);
                     }
                 }
                 catch (NullReferenceException) { }

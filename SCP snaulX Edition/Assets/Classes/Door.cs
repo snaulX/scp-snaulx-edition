@@ -46,19 +46,6 @@ public class Door : MonoBehaviour
                     audio.Play();
                 }
             }
-            else
-            {
-                player = GameObject.FindGameObjectWithTag("scp");
-                Debug.Log(player.transform.position + " " + transform.position);
-                if (-4 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 4
-                && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4)
-                {
-                    if (level < SecurityLevel.MTF)
-                    {
-                        Open();
-                    }
-                }
-            }
         }
         catch (NullReferenceException)
         {
