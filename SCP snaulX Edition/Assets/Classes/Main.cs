@@ -10,6 +10,7 @@ public enum LevelDifficulty
 
 public class Main : MonoBehaviour
 {
+    public Texture handsymbol, handsymbol2;
     public float updateInterval = 0.5F;
     private double lastInterval;
     private int frames = 0;

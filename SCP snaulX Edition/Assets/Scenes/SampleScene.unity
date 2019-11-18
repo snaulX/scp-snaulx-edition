@@ -4696,6 +4696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed8d2c1d4852e644836f9815fdda65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handsymbol: {fileID: 2800000, guid: e85ee7bd62354a644a377d60d2af7a4b, type: 3}
+  handsymbol2: {fileID: 2800000, guid: ec081cbd06a73dd4e9c62f3536557713, type: 3}
   updateInterval: 0.5
   fps: 0
 --- !u!114 &1089731287

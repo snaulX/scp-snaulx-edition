@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class BombButton : MonoBehaviour
 {
     public float seconds;
+    private bool player_can_take = false;
+
     public float fps
     {
         get => GameObject.Find("player").GetComponent<Main>().fps;
@@ -24,17 +26,24 @@ public class BombButton : MonoBehaviour
         if (seconds == -100f)
         {
             if (-2 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 2
-                && -2 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 2
-                && Input.GetKeyDown(KeyCode.E))
+                && -2 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 2)
             {
-                GameObject[] doorobjs = GameObject.FindGameObjectsWithTag("door");
-                foreach (GameObject obj in doorobjs)
+                player_can_take = true;
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    obj.GetComponent<Door>().Unlock();
+                    GameObject[] doorobjs = GameObject.FindGameObjectsWithTag("door");
+                    foreach (GameObject obj in doorobjs)
+                    {
+                        obj.GetComponent<Door>().Unlock();
+                    }
+                    audio[0].Play();
+                    seconds = 90;
+                    audio[1].Play((ulong)audio[0].time);
                 }
-                audio[0].Play();
-                seconds = 90;
-                audio[1].Play((ulong)audio[0].time);
+            }
+            else
+            {
+                player_can_take = false;
             }
         }
         else if (seconds > 0)
@@ -60,6 +69,10 @@ public class BombButton : MonoBehaviour
             style.fontSize = 45;
             style.margin = new RectOffset(20, 20, 20, 20);
             GUILayout.Label(seconds.ToString() + " seconds before the explosion", style);
+        }
+        if (player_can_take)
+        {
+            GUI.DrawTexture(new Rect(400, 400, 60, 60), GameObject.Find("player").GetComponent<Main>().handsymbol);
         }
     }
 }

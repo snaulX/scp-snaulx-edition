@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Door : MonoBehaviour
     public SecurityLevel level;
     public bool Lock;
     new AudioSource audio;
+    private bool player_can_open = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +36,24 @@ public class Door : MonoBehaviour
         {
             GameObject player = GameObject.Find("player");
             if (-4 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 4
-                && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4
-                && Input.GetKeyDown(KeyCode.E))
+                && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4)
             {
-                if (player.GetComponent<Player>().level >= level)
+                player_can_open = true;
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Open();
+                    if (player.GetComponent<Player>().level >= level)
+                    {
+                        Open();
+                    }
+                    else
+                    {
+                        audio.Play();
+                    }
                 }
-                else
-                {
-                    audio.Play();
-                }
+            }
+            else
+            {
+                player_can_open = false;
             }
         }
         catch (NullReferenceException)
@@ -85,5 +94,13 @@ public class Door : MonoBehaviour
     {
         Lock = true;
         Close();
+    }
+
+    private void OnGUI()
+    {
+        if (player_can_open)
+        {
+            GUI.DrawTexture(new Rect(400, 400, 60, 60), GameObject.Find("player").GetComponent<Main>().handsymbol);
+        }
     }
 }

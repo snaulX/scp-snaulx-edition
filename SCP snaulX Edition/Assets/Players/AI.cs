@@ -40,14 +40,14 @@ public class AI : MonoBehaviour
             Debug.Log(target.name + ' ' + name);
             if (hit.distance < 3.0f && hit.distance > -1f)
             {
-                if (target.tag == "Wall")
-                {
-                    transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
-                }
                 if (target.tag == "glass")
                 {
                     transform.LookAt(target.transform);
                     transform.Translate(3f, 0f, 0f);
+                }
+                else if (target.tag != "Player")
+                {
+                    transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
                 }
                 try
                 {
