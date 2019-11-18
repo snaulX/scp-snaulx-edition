@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Keycard : MonoBehaviour
 {
     [SerializeField]
     public SecurityLevel security;
     private bool player_can_take = false;
+    private AudioSource take = new AudioSource();
     // Use this for initialization
     void Start()
     {
-
+        take.clip = GameObject.Find("player").GetComponent<Main>().pick_card;
     }
 
     // Update is called once per frame
@@ -23,6 +25,8 @@ public class Keycard : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Player pl = player.GetComponent<Player>();
+                try { take.Play(); }
+                catch (Exception e) { Debug.Log(e); }
                 if (pl.level < security)
                 {
                     pl.level = security;

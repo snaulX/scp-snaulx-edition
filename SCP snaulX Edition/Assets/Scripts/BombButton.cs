@@ -41,20 +41,20 @@ public class BombButton : MonoBehaviour
                     audio[1].Play((ulong)audio[0].time);
                 }
             }
-            else
-            {
-                player_can_take = false;
-            }
         }
         else if (seconds > 0)
         {
+            player_can_take = false;
             seconds -= 1f / fps;
         }
         else
         {
             audio[2].Play();
-            GameObject.Find("scp096").GetComponent<Scp>().hp = 0;
-            GameObject.Find("scp173").GetComponent<Scp>().hp = 0;
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("scp");
+            for (int i = 0; i < gameObjects.Length; i++)
+            {
+                gameObjects[i].GetComponent<Scp>().hp = 0;
+            }
             if (player.transform.position.x < 30.7) player.GetComponent<Player>().hp = 0;
             seconds = -100f;
         }
@@ -62,6 +62,10 @@ public class BombButton : MonoBehaviour
 
     private void OnGUI()
     {
+        if (player_can_take)
+        {
+            GUI.DrawTexture(new Rect(400, 400, 60, 60), GameObject.Find("player").GetComponent<Main>().handsymbol);
+        }
         if (seconds > 0)
         {
             GUIStyle style = new GUIStyle();
@@ -69,10 +73,6 @@ public class BombButton : MonoBehaviour
             style.fontSize = 45;
             style.margin = new RectOffset(20, 20, 20, 20);
             GUILayout.Label(seconds.ToString() + " seconds before the explosion", style);
-        }
-        if (player_can_take)
-        {
-            GUI.DrawTexture(new Rect(400, 400, 60, 60), GameObject.Find("player").GetComponent<Main>().handsymbol);
         }
     }
 }
