@@ -62,7 +62,7 @@ _Second card - card of MTF. In order to enter a room with this card, you need to
 ![O5 Card](images/o5-card.png)
 
 
-_Last card - card of O5. It can only be accessed with an MTF access level and detonating a warhead (at the top, as you can see its countdown)_
+_Last card - card of O5. It can only be accessed with an MTF access level and detonating a warhead (at the top, as you can see its countdown. In background you can see computer which on screen image from camera from main coridor)_
 
 
 
@@ -83,6 +83,10 @@ _SCP-096 (On background exit gate)_
 ![SCP-173](images/scp173.png)
 
 
-_SCP-173 (On background enter to containment chamber of SCP-096)_  
+_SCP-173 (On background coridor with containment chamber of SCP-1162)_  
+
+![SCP-1162](images/scp1162.png)
+
+_Wall with SCP-1162_ 
 
 **All info was take from [Documentation and Instruction for this Game](https://docs.google.com/document/d/18c7CPUubT0VBaM5hC2Ewlm473kigtDTfYbinHRcn7xk/edit?usp=sharing)**
