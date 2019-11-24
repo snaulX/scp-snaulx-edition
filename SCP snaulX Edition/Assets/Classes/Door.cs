@@ -66,6 +66,12 @@ public class Door : MonoBehaviour
     {
         if (!Lock)
         {
+            try
+            {
+                //AudioSource close = GetComponents<AudioSource>()[1];
+                //close.PlayOneShot(close.clip);
+            }
+            catch { }
             transform.position = new Vector3(x, transform.position.y, z);
         }
     }
@@ -74,6 +80,12 @@ public class Door : MonoBehaviour
     {
         if (!Lock)
         {
+            try
+            {
+                //AudioSource open = GetComponents<AudioSource>()[0];
+                //open.PlayOneShot(open.clip);
+            }
+            catch { }
             for (float i = 0; i < 6f; i += 0.001f)
             {
                 if (axis == 0) transform.position = new Vector3(x - i, transform.position.y, z);

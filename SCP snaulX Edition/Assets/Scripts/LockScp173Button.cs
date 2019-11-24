@@ -23,7 +23,12 @@ public class LockScp173Button : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Door[] doors = GameObject.Find("big-door").GetComponentsInChildren<Door>();
-                GetComponent<AudioSource>().Play();
+                try
+                {
+                    AudioSource audio = GetComponent<AudioSource>();
+                    audio.PlayOneShot(audio.clip);
+                }
+                catch { }
                 foreach (Door door in doors)
                 {
                     if (door.Lock) door.Unlock();
