@@ -50,7 +50,7 @@ public class Scp1162 : MonoBehaviour
         if (loose_hp > 0)
         {
             GUI.Label(new Rect(100, 300, 100, 50), $"You have {GameObject.Find("player").GetComponent<Player>().hp} hp");
-            loose_hp = loose_hp - Time.deltaTime * 80;
+            loose_hp -= Time.deltaTime * 80;
         }
     }
 }

@@ -5,7 +5,7 @@ public class MouseLook : MonoBehaviour
 {
     Transform Transform
     {
-        get => GameObject.Find("Main Camera").transform;
+        get => GameObject.Find("player").GetComponentInChildren<Camera>().transform;
     }
     Vector3 pos
     {
@@ -26,6 +26,6 @@ public class MouseLook : MonoBehaviour
         _rotationX -= Input.GetAxis("Mouse Y") * 6f;
         _rotationX = Mathf.Clamp(_rotationX, -30f, 60f);
         transform.Rotate(0, Input.GetAxis("Mouse X") * 6f, 0);
-        Transform.localEulerAngles = new Vector3(_rotationX - 0.1f, Transform.localEulerAngles.y + (Input.GetAxis("Mouse X") * 6f));
+        Transform.localEulerAngles = new Vector3(_rotationX - 0.1f, Transform.localEulerAngles.y);
     }
 }

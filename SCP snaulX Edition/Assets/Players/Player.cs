@@ -94,8 +94,6 @@ public class Player : MonoBehaviour
             float x = Input.GetAxis("Vertical"), z = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(z * speed * Time.deltaTime, 0f, x * speed * Time.deltaTime);
             transform.Translate(movement);
-            Transform t = GameObject.Find("Main Camera").transform;
-            t.position = new Vector3(pos.x + transform.rotation.x / 100, pos.y + 5.62f, pos.z + transform.rotation.z / 100);
             movement = Vector3.ClampMagnitude(movement, speed);
             movement = transform.TransformDirection(movement);
             characterController.Move(movement);
