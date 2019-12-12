@@ -18,7 +18,7 @@ public class LockScp096Button : MonoBehaviour
         try
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3
+            if (player.transform.position.z - transform.position.z < 3
                 && -3 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 3)
             {
                 player_can_take = true;

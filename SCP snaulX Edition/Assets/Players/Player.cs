@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
             GUILayout.Label("\n Press R for restart or X for exit from the game", st);
             end = true;
         }
-        if (transform.position.x > 31.3)
+        if (transform.position.x >= 30.7 || transform.position.z <= -43.5)
         {
             GUILayout.Label("YOU WIN!!!", style);
             GUILayout.Label("Press R for restart or X for exit from the game", st);

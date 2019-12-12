@@ -51,11 +51,11 @@ public class BombButton : MonoBehaviour
         {
             audio[2].Play();
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("scp");
-            for (int i = 0; i < gameObjects.Length; i++)
+            foreach (GameObject scp in gameObjects)
             {
-                gameObjects[i].GetComponent<Scp>().hp = 0;
+                if (scp.transform.position.x < 30.7 || scp.transform.position.z > -43.5) scp.GetComponent<Scp>().hp = 0;
             }
-            if (player.transform.position.x < 30.7) player.GetComponent<Player>().hp = 0;
+            if (player.transform.position.x < 30.7 || player.transform.position.z > -43.5) player.GetComponent<Player>().hp = 0;
             seconds = -100f;
         }
     }
