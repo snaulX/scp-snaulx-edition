@@ -53,9 +53,9 @@ public class BombButton : MonoBehaviour
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("scp");
             foreach (GameObject scp in gameObjects)
             {
-                if (scp.transform.position.x < 30.7 || scp.transform.position.z > -43.5) scp.GetComponent<Scp>().hp = 0;
+                if (scp.transform.position.x < 33 || scp.transform.position.z > -43.5) scp.GetComponent<Scp>().hp = 0;
             }
-            if (player.transform.position.x < 30.7 || player.transform.position.z > -43.5) player.GetComponent<Player>().hp = 0;
+            if (player.transform.position.x < 33 || player.transform.position.z > -43.5) player.GetComponent<Player>().Die();
             seconds = -100f;
         }
     }

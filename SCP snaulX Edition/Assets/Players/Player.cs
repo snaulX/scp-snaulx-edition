@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int blinking;
     public float speed;
     public short hp;
-    public bool end = false;
+    public bool end = false, die = false;
     Vector3 pos
     {
         get => transform.position;
@@ -17,9 +17,12 @@ public class Player : MonoBehaviour
     CharacterController characterController;
     public SecurityLevel level;
     LevelDifficulty lvl;
+    public GameObject spawn;
+    Transform spawn_info;
     // Use this for initialization
     void Start()
     {
+        spawn_info = spawn.transform;
         audio = GetComponent<AudioSource>();
         Cursor.visible = false;
         blinking = 300;
@@ -80,9 +83,9 @@ public class Player : MonoBehaviour
         }
         if (hp <= 0)
         {
-            //Destroy(gameObject);
+            if (!die) Die();
             if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
-            else if (Input.GetKey(KeyCode.X))  Application.Quit();
+            else if (Input.GetKey(KeyCode.X)) Application.Quit();
         }
         else
         {
@@ -112,11 +115,18 @@ public class Player : MonoBehaviour
             GUILayout.Label("\n Press R for restart or X for exit from the game", st);
             end = true;
         }
-        if (transform.position.x >= 30.7 || transform.position.z <= -43.5)
+        if (transform.position.x >= 33 || transform.position.z <= -43.5)
         {
             GUILayout.Label("YOU WIN!!!", style);
             GUILayout.Label("Press R for restart or X for exit from the game", st);
             end = true;
         }
+    }
+
+    public void Die()
+    {
+        hp = 0;
+        die = true;
+        transform.Rotate(83, 0, 0);
     }
 }

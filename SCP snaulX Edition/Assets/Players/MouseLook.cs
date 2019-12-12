@@ -23,9 +23,12 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rotationX -= Input.GetAxis("Mouse Y") * 6f;
-        _rotationX = Mathf.Clamp(_rotationX, -30f, 60f);
-        transform.Rotate(0, Input.GetAxis("Mouse X") * 6f, 0);
-        Transform.localEulerAngles = new Vector3(_rotationX - 0.1f, Transform.localEulerAngles.y);
+        if (!GetComponent<Player>().die)
+        {
+            _rotationX -= Input.GetAxis("Mouse Y") * 6f;
+            _rotationX = Mathf.Clamp(_rotationX, -30f, 60f);
+            transform.Rotate(0, Input.GetAxis("Mouse X") * 6f, 0);
+            Transform.localEulerAngles = new Vector3(_rotationX - 0.1f, Transform.localEulerAngles.y);
+        }
     }
 }
