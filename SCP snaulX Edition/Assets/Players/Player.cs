@@ -5,7 +5,6 @@ using System;
 
 public class Player : MonoBehaviour
 {
-    public int blinking;
     public float speed;
     public short hp;
     public bool end = false, die = false;
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
         spawn_info = spawn.transform;
         audio = GetComponent<AudioSource>();
         Cursor.visible = false;
-        blinking = 300;
         characterController = GetComponent<CharacterController>();
         lvl = (LevelDifficulty) PlayerPrefs.GetInt("level_difficulty");
         Scp scp173 = GameObject.Find("scp173").GetComponent<Scp>(), scp096 = GameObject.Find("scp096").GetComponent<Scp>();
@@ -72,15 +70,6 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene(0);
         }
-        blinking--;
-        if (blinking < -10)
-        {
-            blinking = 300;
-        }
-        else if (blinking < 0)
-        {
-            //screen will be black on second
-        }
         if (hp <= 0)
         {
             if (!die) Die();
@@ -93,6 +82,16 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
                 else if (Input.GetKey(KeyCode.X)) Application.Quit();
+            }
+            Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
+            RaycastHit hit;
+            if (Physics.SphereCast(ray, 8f, out hit))
+            {
+                GameObject target = hit.transform.gameObject;
+                if (target.name == "scp173")
+                {
+                    target.GetComponent<AI>().Stop();
+                }
             }
             float x = Input.GetAxis("Vertical"), z = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(z * speed * Time.deltaTime, 0f, x * speed * Time.deltaTime);
