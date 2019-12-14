@@ -7,7 +7,6 @@ public class Scp173 : MonoBehaviour
     Scp scp
     {
         get => GetComponent<Scp>();
-        set => GetComponent<Scp>();
     }
     AudioSource walk;
     // Start is called before the first frame update
@@ -22,8 +21,6 @@ public class Scp173 : MonoBehaviour
     {
         //walk.Play();
         Debug.Log(walk.isPlaying);
-        if (scp.hp <= 0)
-            Destroy(gameObject);
         scp.Kill();
     }
 

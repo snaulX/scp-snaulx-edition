@@ -16,8 +16,6 @@ public class Scp096 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scp.hp <= 0)
-            Destroy(gameObject);
         scp.Kill();
     }
 

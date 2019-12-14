@@ -50,4 +50,10 @@ public class Scp: MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (hp <= 0)
+            Destroy(gameObject);
+    }
 }

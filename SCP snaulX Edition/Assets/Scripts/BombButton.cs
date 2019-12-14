@@ -55,7 +55,7 @@ public class BombButton : MonoBehaviour
             {
                 if (scp.transform.position.x < 33 || scp.transform.position.z > -43.5) scp.GetComponent<Scp>().hp = 0;
             }
-            if (player.transform.position.x < 33 || player.transform.position.z > -43.5) player.GetComponent<Player>().Die();
+            if (player.transform.position.x < 33 && player.transform.position.z > -43.5) player.GetComponent<Player>().Die();
             seconds = -100f;
         }
     }
