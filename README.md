@@ -50,6 +50,18 @@ Fixes and changes with the OLD version (0.1.0):
 * Add documents about SCPs in these contaiment chambers on walls
 * Some fixes
 
+0.1.5:
+* Made map more dark
+* Add Christmas Tree
+* Add snow
+* Add new doors and rooms (it all locked)
+* Add gifts
+* Partially made scp 173 ability
+* Add sky
+* Add lamp in "lock 096 chamber" room
+* Some fixes
+
+
 
 
 ![MTF Card](images/mtf-card.png)
