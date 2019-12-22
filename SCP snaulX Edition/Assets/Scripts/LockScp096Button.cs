@@ -5,6 +5,8 @@ using System;
 public class LockScp096Button : MonoBehaviour
 {
     private bool player_can_take = false;
+    [SerializeField]
+    float z_minus, z_plus, x_minus, x_plus;
 
     // Use this for initialization
     void Start()
@@ -18,8 +20,8 @@ public class LockScp096Button : MonoBehaviour
         try
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player.transform.position.z - transform.position.z < 3 && -3 < player.transform.position.z - transform.position.z
-                && -3 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 3)
+            if (player.transform.position.z - transform.position.z < z_plus && z_minus < player.transform.position.z - transform.position.z
+                && x_minus < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < x_plus)
             {
                 player_can_take = true;
                 if (Input.GetKeyDown(KeyCode.E))
