@@ -84,14 +84,22 @@ public class Door : MonoBehaviour
             {
                 //AudioSource open = GetComponents<AudioSource>()[0];
                 //open.PlayOneShot(open.clip);
+                if (axis == 0) GetComponent<Animator>().Play("top");
+                else if (axis == 1) GetComponent<Animator>().Play("bottom");
+                else if (axis == 2) GetComponent<Animator>().Play("left");
+                else GetComponent<Animator>().Play("right");
             }
-            catch { }
-            for (float i = 0; i < 6f; i += 0.001f)
+            catch
             {
-                if (axis == 0) transform.position = new Vector3(x - i, transform.position.y, z);
-                else if (axis == 1) transform.position = new Vector3(-x - i, transform.position.y, z);
-                else if (axis == 2) transform.position = new Vector3(x, transform.position.y, z - i);
-                else transform.position = new Vector3(x, transform.position.y, -z - i);
+                //if door haven`t animation
+                for (float i = 0; i < 6f; i += 0.001f)
+                {
+                    //движение двери относительно стартовой позиции персонажа
+                    if (axis == 0) transform.position = new Vector3(x - i, transform.position.y, z); //left
+                    else if (axis == 1) transform.position = new Vector3(-x - i, transform.position.y, z); //right
+                    else if (axis == 2) transform.position = new Vector3(x, transform.position.y, z - i); //top
+                    else transform.position = new Vector3(x, transform.position.y, -z - i); //back
+                }
             }
             seconds = 100;
         }
