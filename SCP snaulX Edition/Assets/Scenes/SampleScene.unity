@@ -6833,7 +6833,7 @@ MonoBehaviour:
   speed: 11
   damage: 0
   hp: 1000
-  death_audio: {fileID: 1161555455}
+  death_audio: {fileID: 0}
 --- !u!82 &1161555458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6930,6 +6930,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1161555459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161555454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c1dc4dd1e42c64ab9cba063d8af850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &1161555460
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161555454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 4.2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.1, z: 0}
 --- !u!1001 &1188988917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7371,7 +7401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e229ab84e98054f408a2757b17d37e70, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e229ab84e98054f408a2757b17d37e70, type: 3}
       propertyPath: m_LocalPosition.x

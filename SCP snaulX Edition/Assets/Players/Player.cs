@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
         characterController = GetComponent<CharacterController>();
         lvl = (LevelDifficulty) PlayerPrefs.GetInt("level_difficulty");
-        Scp scp173 = GameObject.Find("scp173").GetComponent<Scp>(), scp096 = GameObject.Find("scp096").GetComponent<Scp>();
+        Scp scp173 = GameObject.Find("scp173").GetComponent<Scp>(), scp096 = GameObject.Find("scp096").GetComponent<Scp>(),
+            scp049 = GameObject.Find("scp049").GetComponent<Scp>();
         if (lvl == LevelDifficulty.Safe)
         {
             hp = 300;
@@ -37,6 +38,9 @@ public class Player : MonoBehaviour
             scp096.speed = 10f;
             scp096.damage = 300;
             scp096.hp = 1200;
+            scp049.speed = 9.2f;
+            scp049.damage = 200;
+            scp049.hp = 1000;
         }
         else if (lvl == LevelDifficulty.Euclid)
         {
@@ -48,6 +52,9 @@ public class Player : MonoBehaviour
             scp096.speed = 11f;
             scp096.damage = 450;
             scp096.hp = 1400;
+            scp049.speed = 10.5f;
+            scp049.damage = 320;
+            scp049.hp = 1100;
         }
         else
         {
@@ -59,6 +66,9 @@ public class Player : MonoBehaviour
             scp096.speed = 12f;
             scp096.damage = 600;
             scp096.hp = 1600;
+            scp049.speed = 12.5f;
+            scp049.damage = 440;
+            scp049.hp = 1250;
         }
     }
 

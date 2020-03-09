@@ -3,18 +3,19 @@ using System.Collections;
 
 public class Scp049 : MonoBehaviour
 {
+    Scp scp;
 
     // Use this for initialization
     void Start()
     {
-
+        scp = GetComponent<Scp>();
+        scp.death_audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float bombButton = GameObject.Find("bombbutton").GetComponent<BombButton>().seconds;
-        if (bombButton > 0) GetComponent<AudioSource>().Play();
-        else if (bombButton < 0 && bombButton != -100) GetComponents<AudioSource>()[1].Play();
+        scp.Kill();
+
     }
 }

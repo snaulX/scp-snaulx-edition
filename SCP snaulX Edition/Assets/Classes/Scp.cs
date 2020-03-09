@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
 
 public class Scp: MonoBehaviour
@@ -32,10 +31,11 @@ public class Scp: MonoBehaviour
 
     public void Kill()
     {
-        if (-2 < enemy.transform.position.z - position.z && enemy.transform.position.z - position.z < 2
-            && -2 < enemy.transform.position.x - position.x && enemy.transform.position.x - position.x < 2)
+        Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
+        RaycastHit hit;
+        if (Physics.SphereCast(ray, 3.5f, out hit) && hit.distance < 1f)
         {
-            Player pl = enemy.GetComponent<Player>();
+            Player pl = hit.transform.gameObject.GetComponent<Player>();
             if (pl.hp > 0)
             {
                 try
