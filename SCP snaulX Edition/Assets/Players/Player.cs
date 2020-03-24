@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public short hp;
-    public bool end = false, die = false;
+    public bool end = false, die = false, can_take = false, can_open = false;
     Vector3 pos
     {
         get => transform.position;
@@ -18,9 +18,19 @@ public class Player : MonoBehaviour
     LevelDifficulty lvl;
     public GameObject spawn;
     Transform spawn_info;
-    // Use this for initialization
+    Texture take, open;
+    Camera camera;
+    GUIStyle style = new GUIStyle(), st;
+    
     void Start()
     {
+        style.alignment = TextAnchor.MiddleCenter;
+        style.fontSize = 220;
+        st = new GUIStyle(style);
+        st.fontSize = 75;
+        camera = GetComponentInChildren<Camera>();
+        take = GetComponent<Main>().handsymbol2;
+        open = GetComponent<Main>().handsymbol;
         spawn_info = spawn.transform;
         audio = GetComponent<AudioSource>();
         Cursor.visible = false;
@@ -93,11 +103,41 @@ public class Player : MonoBehaviour
                 if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
                 else if (Input.GetKey(KeyCode.X)) Application.Quit();
             }
-            Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
+            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             RaycastHit hit;
-            if (Physics.SphereCast(ray, 8f, out hit))
+            if (Physics.Raycast(ray, out hit, 7.5f)) //on short distance
             {
                 GameObject target = hit.transform.gameObject;
+                Debug.Log($"RAY {target.name} on short distance");
+                Keycard card = target.GetComponent<Keycard>();
+                if (card != null)
+                {
+                    can_take = true;
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        try { card.take.Play(); }
+                        catch (Exception e) { Debug.Log(e); }
+                        if (level < card.security)
+                        {
+                            level = card.security;
+                            Destroy(card.gameObject);
+                        }
+                    }
+                }
+                else if (target.name == "Tank_cover.001" && Input.GetKeyDown(KeyCode.E))
+                {
+                    target.GetComponentInParent<AudioSource>().Play();
+                }
+                else
+                {
+                    can_take = false;
+                    can_open = false;
+                }
+            }
+            else if (Physics.Raycast(ray, out hit)) //on other distance
+            {
+                GameObject target = hit.transform.gameObject;
+                Debug.Log("RAY " + target.name);
                 if (target.name == "scp173")
                 {
                     target.GetComponent<AI>().Stop();
@@ -114,11 +154,10 @@ public class Player : MonoBehaviour
 
     private void OnGUI()
     {
-        GUIStyle style = new GUIStyle();
-        style.alignment = TextAnchor.MiddleCenter;
-        style.fontSize = 220;
-        GUIStyle st = new GUIStyle(style);
-        st.fontSize = 75;
+        if (can_take)
+        {
+            GUI.DrawTexture(new Rect(100, 100, 100, 100), take);
+        }
         if (hp <= 0)
         {
             GUILayout.Label("\n Press R for restart or X for exit from the game", st);
