@@ -5,6 +5,7 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    const float ARM_LENGTH = 7.7f;
     public float speed;
     public short hp;
     public bool end = false, die = false, can_take = false, can_open = false;
@@ -24,11 +25,11 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        camera = GetComponentInChildren<Camera>();
         style.alignment = TextAnchor.MiddleCenter;
         style.fontSize = 220;
         st = new GUIStyle(style);
         st.fontSize = 75;
-        camera = GetComponentInChildren<Camera>();
         take = GetComponent<Main>().handsymbol2;
         open = GetComponent<Main>().handsymbol;
         spawn_info = spawn.transform;
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
             }
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 7.5f)) //on short distance
+            if (Physics.Raycast(ray, out hit, ARM_LENGTH)) //on short distance
             {
                 GameObject target = hit.transform.gameObject;
                 Debug.Log($"RAY {target.name} on short distance");
@@ -163,7 +164,7 @@ public class Player : MonoBehaviour
             GUILayout.Label("\n Press R for restart or X for exit from the game", st);
             end = true;
         }
-        if (transform.position.x >= 33 || transform.position.z <= -43.5)
+        if (!Helper.InFacility(gameObject))
         {
             GUILayout.Label("YOU WIN!!!", style);
             GUILayout.Label("Press R for restart or X for exit from the game", st);

@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BombButton : MonoBehaviour
 {
@@ -49,13 +47,17 @@ public class BombButton : MonoBehaviour
         }
         else
         {
+            //booom
             audio[2].Play();
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("scp");
-            foreach (GameObject scp in gameObjects)
+            foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects())
             {
-                if (scp.transform.position.x < 33 || scp.transform.position.z > -43.5) scp.GetComponent<Scp>().hp = 0;
-            }
-            if (player.transform.position.x < 33 && player.transform.position.z > -43.5) player.GetComponent<Player>().Die();
+                if (Helper.InFacility(obj))
+                {
+                    if (obj.CompareTag("Player")) obj.GetComponent<Player>().Die();
+                    else Destroy(obj);
+                }
+            } //destroy facility
+            GameObject.Find("door").GetComponent<Door>().Lockdown(); //lock exit
             seconds = -100f;
         }
     }
@@ -74,5 +76,14 @@ public class BombButton : MonoBehaviour
             style.margin = new RectOffset(20, 20, 20, 20);
             GUILayout.Label(seconds.ToString() + " seconds before the explosion", style);
         }
+    }
+}
+
+public static class Helper
+{
+    public static bool InFacility(GameObject gameObject)
+    {
+        Vector3 pos = gameObject.transform.position;
+        return pos.x < 33 && pos.z > -43.5;
     }
 }
