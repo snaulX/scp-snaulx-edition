@@ -22,9 +22,16 @@ public class Player : MonoBehaviour
     Texture take, open;
     Camera camera;
     GUIStyle style = new GUIStyle(), st;
+    KeyCode restart, exitGame, pivkItem, operateDoor;
+    string endMessage;
     
     void Start()
     {
+        restart = (KeyCode)PlayerPrefs.GetInt("restart");
+        exitGame = (KeyCode)PlayerPrefs.GetInt("exitGame");
+        pivkItem = (KeyCode)PlayerPrefs.GetInt("pickItem");
+        operateDoor = (KeyCode)PlayerPrefs.GetInt("operateDoor");
+        endMessage = $"Press {restart.ToString().Remove(0, 8)} for restart or {exitGame.ToString().Remove(0, 8)} for exit from the game";
         camera = GetComponentInChildren<Camera>();
         style.alignment = TextAnchor.MiddleCenter;
         style.fontSize = 220;
@@ -94,15 +101,15 @@ public class Player : MonoBehaviour
         if (hp <= 0)
         {
             if (!die) Die();
-            if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
-            else if (Input.GetKey(KeyCode.X)) Application.Quit();
+            if (Input.GetKey(restart)) SceneManager.LoadScene("SampleScene");
+            else if (Input.GetKey(exitGame)) Application.Quit();
         }
         else
         {
             if (end)
             {
-                if (Input.GetKey(KeyCode.R)) SceneManager.LoadScene("SampleScene");
-                else if (Input.GetKey(KeyCode.X)) Application.Quit();
+                if (Input.GetKey(restart)) SceneManager.LoadScene("SampleScene");
+                else if (Input.GetKey(exitGame)) Application.Quit();
             }
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             RaycastHit hit;
@@ -114,7 +121,7 @@ public class Player : MonoBehaviour
                 if (card != null)
                 {
                     can_take = true;
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(pivkItem))
                     {
                         try { card.take.Play(); }
                         catch (Exception e) { Debug.Log(e); }
@@ -167,7 +174,7 @@ public class Player : MonoBehaviour
         if (!Helper.InFacility(gameObject))
         {
             GUILayout.Label("YOU WIN!!!", style);
-            GUILayout.Label("Press R for restart or X for exit from the game", st);
+            GUILayout.Label(endMessage, st);
             end = true;
         }
     }
