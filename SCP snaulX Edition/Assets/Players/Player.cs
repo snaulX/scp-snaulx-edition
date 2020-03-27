@@ -27,11 +27,12 @@ public class Player : MonoBehaviour
     
     void Start()
     {
-        restart = (KeyCode)PlayerPrefs.GetInt("restart");
-        exitGame = (KeyCode)PlayerPrefs.GetInt("exitGame");
-        pivkItem = (KeyCode)PlayerPrefs.GetInt("pickItem");
-        operateDoor = (KeyCode)PlayerPrefs.GetInt("operateDoor");
-        endMessage = $"Press {restart.ToString().Remove(0, 8)} for restart or {exitGame.ToString().Remove(0, 8)} for exit from the game";
+        restart = Handler.keyCodes[PlayerPrefs.GetInt("restart")];
+        exitGame = Handler.keyCodes[PlayerPrefs.GetInt("exitGame")];
+        pivkItem = Handler.keyCodes[PlayerPrefs.GetInt("pickItem")];
+        operateDoor = Handler.keyCodes[PlayerPrefs.GetInt("operateDoor")];
+        Debug.Log(operateDoor);
+        endMessage = $"Press {restart.ToString()} for restart or {exitGame.ToString()} for exit from the game";
         camera = GetComponentInChildren<Camera>();
         style.alignment = TextAnchor.MiddleCenter;
         style.fontSize = 220;
@@ -116,6 +117,7 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out hit, ARM_LENGTH)) //on short distance
             {
                 GameObject target = hit.transform.gameObject;
+                string tname = target.name;
                 Debug.Log($"RAY {target.name} on short distance");
                 Keycard card = target.GetComponent<Keycard>();
                 if (card != null)
@@ -132,9 +134,19 @@ public class Player : MonoBehaviour
                         }
                     }
                 }
-                else if (target.name == "Tank_cover.001" && Input.GetKeyDown(KeyCode.E))
+                else if (tname == "Tank_cover.001" && Input.GetKeyDown(KeyCode.E))
                 {
                     target.GetComponentInParent<AudioSource>().Play();
+                }
+                else if (tname.StartsWith("door") || tname.StartsWith("big_door") || tname.StartsWith("toilet-door"))
+                {
+                    Debug.LogWarning(operateDoor);
+                    if (Input.GetKeyDown(operateDoor))
+                    {
+                        Door door = target.GetComponent<Door>() ?? target.GetComponentInChildren<Door>();
+                        if (level >= door.level) door.Open();
+                        else door.audio.Play();
+                    }
                 }
                 else
                 {

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public enum LevelDifficulty
 {
@@ -42,4 +44,10 @@ public class Main : MonoBehaviour
             lastInterval = timeNow;
         }
     }
+}
+
+public static class Handler
+{
+    public static readonly List<KeyCode> keyCodes = Enum.GetValues(typeof(KeyCode)).Cast<KeyCode>().ToList();
+    public static List<GameObject> disabled = new List<GameObject>();
 }

@@ -6,25 +6,32 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    
+    Dropdown pickItem, operateDoor;
     void Start()
     {
+        Handler.disabled.Add(GameObject.Find("Canvas"));
         Dropdown[] dropdowns = GetComponentsInChildren<Dropdown>();
-        Type keycode = typeof(KeyCode);
         foreach (Dropdown dropdown in dropdowns)
         {
             List<string> captions = new List<string>();
             dropdown.ClearOptions();
-            foreach (KeyCode code in Enum.GetValues(keycode).Cast<KeyCode>()) captions.Add(code.ToString());
+            for (int i = 0; i < Handler.keyCodes.Count; i++) captions.Add(Handler.keyCodes[i].ToString());
             dropdown.AddOptions(captions);
         }
-        Dropdown pickItem = dropdowns[0];//, operateDoor = dropdowns[1];
+        pickItem = dropdowns[0];
         pickItem.value = PlayerPrefs.GetInt("pickItem");
-        pickItem.onValueChanged.AddListener((value) => PlayerPrefs.SetInt("pickItem", value));
+        operateDoor = dropdowns[1];
+        operateDoor.value = PlayerPrefs.GetInt("operateDoor");
     }
-
-    private void OnDisable()
+    
+    private void Update()
     {
+        PlayerPrefs.SetInt("pickItem", pickItem.value);
+        PlayerPrefs.SetInt("operateDoor", operateDoor.value);
         PlayerPrefs.Save();
+        if (Input.GetButton("Cancel"))
+        {
+            Handler.disabled[0].SetActive(true);
+        }
     }
 }

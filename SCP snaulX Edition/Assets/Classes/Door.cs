@@ -8,17 +8,15 @@ public class Door : MonoBehaviour
     float x, z;
     public SecurityLevel level;
     public bool Lock;
-    new AudioSource audio;
-    private bool player_can_open = false;
-    // Start is called before the first frame update
+    public new AudioSource audio;
+    
     void Start()
     {
         audio = GameObject.Find("DoorSound").GetComponent<AudioSource>();
         x = transform.position.x;
         z = transform.position.z;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (seconds <= 0 && seconds != -1)
@@ -28,34 +26,6 @@ public class Door : MonoBehaviour
         else
         {
             seconds = seconds - Time.deltaTime * 80;
-        }
-        try
-        {
-            GameObject player = GameObject.Find("player");
-            if (-4 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 4
-                && -4 < player.transform.position.x - transform.position.x && player.transform.position.x - transform.position.x < 4)
-            {
-                player_can_open = true;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (player.GetComponent<Player>().level >= level)
-                    {
-                        Open();
-                    }
-                    else
-                    {
-                        audio.Play();
-                    }
-                }
-            }
-            else
-            {
-                player_can_open = false;
-            }
-        }
-        catch (NullReferenceException)
-        {
-            //лол почему
         }
     }
 
@@ -111,13 +81,5 @@ public class Door : MonoBehaviour
     {
         Lock = true;
         Close();
-    }
-
-    private void OnGUI()
-    {
-        if (player_can_open)
-        {
-            GUI.DrawTexture(new Rect(400, 400, 60, 60), GameObject.Find("player").GetComponent<Main>().handsymbol);
-        }
     }
 }

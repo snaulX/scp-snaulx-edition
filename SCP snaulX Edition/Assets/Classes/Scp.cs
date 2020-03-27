@@ -36,16 +36,13 @@ public class Scp: MonoBehaviour
         if (Physics.SphereCast(ray, 3.5f, out hit) && hit.distance < 1f)
         {
             Player pl = hit.transform.gameObject.GetComponent<Player>();
-            if (pl.hp > 0)
+            if (pl != null && pl.hp > 0)
             {
                 try
                 {
                     death_audio.Play();
                 }
-                catch (Exception)
-                {
-                    //просто нет музыки которая бы играла при смерти игрока, но смерть происходит
-                }
+                catch { }
                 pl.hp = (short)(pl.hp - damage);
             }
         }
