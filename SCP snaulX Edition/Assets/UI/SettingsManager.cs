@@ -9,13 +9,13 @@ public class SettingsManager : MonoBehaviour
     Dropdown pickItem, operateDoor;
     void Start()
     {
-        Handler.disabled.Add(GameObject.Find("Canvas"));
+        Helper.disabled.Add(GameObject.Find("Canvas"));
         Dropdown[] dropdowns = GetComponentsInChildren<Dropdown>();
         foreach (Dropdown dropdown in dropdowns)
         {
             List<string> captions = new List<string>();
             dropdown.ClearOptions();
-            for (int i = 0; i < Handler.keyCodes.Count; i++) captions.Add(Handler.keyCodes[i].ToString());
+            for (int i = 0; i < Helper.keyCodes.Count; i++) captions.Add(Helper.keyCodes[i].ToString());
             dropdown.AddOptions(captions);
         }
         pickItem = dropdowns[0];
@@ -31,7 +31,7 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
         if (Input.GetButton("Cancel"))
         {
-            Handler.disabled[0].SetActive(true);
+            Helper.disabled[0].SetActive(true);
         }
     }
 }

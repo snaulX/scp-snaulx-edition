@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
         get => transform.position;
     }
     new AudioSource audio;
+    public AudioSource pickItem_audio, toBeContinued;
     CharacterController characterController;
     public SecurityLevel level;
     LevelDifficulty lvl;
@@ -22,15 +23,15 @@ public class Player : MonoBehaviour
     Texture take, open;
     Camera camera;
     GUIStyle style = new GUIStyle(), st;
-    KeyCode restart, exitGame, pivkItem, operateDoor;
+    KeyCode restart, exitGame, piсkItem, operateDoor;
     string endMessage;
     
     void Start()
     {
-        restart = Handler.keyCodes[PlayerPrefs.GetInt("restart")];
-        exitGame = Handler.keyCodes[PlayerPrefs.GetInt("exitGame")];
-        pivkItem = Handler.keyCodes[PlayerPrefs.GetInt("pickItem")];
-        operateDoor = Handler.keyCodes[PlayerPrefs.GetInt("operateDoor")];
+        restart = Helper.keyCodes[PlayerPrefs.GetInt("restart")];
+        exitGame = Helper.keyCodes[PlayerPrefs.GetInt("exitGame")];
+        piсkItem = Helper.keyCodes[PlayerPrefs.GetInt("pickItem")];
+        operateDoor = Helper.keyCodes[PlayerPrefs.GetInt("operateDoor")];
         Debug.Log(operateDoor);
         endMessage = $"Press {restart.ToString()} for restart or {exitGame.ToString()} for exit from the game";
         camera = GetComponentInChildren<Camera>();
@@ -38,8 +39,11 @@ public class Player : MonoBehaviour
         style.fontSize = 220;
         st = new GUIStyle(style);
         st.fontSize = 75;
-        take = GetComponent<Main>().handsymbol2;
-        open = GetComponent<Main>().handsymbol;
+        Main main = GameObject.Find("Main").GetComponent<Main>();
+        take = main.handsymbol2;
+        open = main.handsymbol;
+        toBeContinued = gameObject.AddComponent<AudioSource>();
+        toBeContinued.clip = main.toBeContinued;
         spawn_info = spawn.transform;
         audio = GetComponent<AudioSource>();
         Cursor.visible = false;
@@ -107,6 +111,10 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (pos.x < 59.5)
+            {
+                toBeContinued.Play();
+            }
             if (end)
             {
                 if (Input.GetKey(restart)) SceneManager.LoadScene("SampleScene");
@@ -123,9 +131,9 @@ public class Player : MonoBehaviour
                 if (card != null)
                 {
                     can_take = true;
-                    if (Input.GetKeyDown(pivkItem))
+                    if (Input.GetKeyDown(piсkItem))
                     {
-                        try { card.take.Play(); }
+                        try { pickItem_audio.Play(); }
                         catch (Exception e) { Debug.Log(e); }
                         if (level < card.security)
                         {
@@ -134,13 +142,13 @@ public class Player : MonoBehaviour
                         }
                     }
                 }
-                else if (tname == "Tank_cover.001" && Input.GetKeyDown(KeyCode.E))
+                else if (tname == "Tank_cover.001" && Input.GetKeyDown(piсkItem))
                 {
                     target.GetComponentInParent<AudioSource>().Play();
                 }
-                else if (tname.StartsWith("door") || tname.StartsWith("big_door") || tname.StartsWith("toilet-door"))
+                else if (tname.StartsWith("door") || tname == "LeftDoor" ||
+                    tname == "RightDoor" || tname.StartsWith("toilet-door"))
                 {
-                    Debug.LogWarning(operateDoor);
                     if (Input.GetKeyDown(operateDoor))
                     {
                         Door door = target.GetComponent<Door>() ?? target.GetComponentInChildren<Door>();
@@ -180,11 +188,11 @@ public class Player : MonoBehaviour
         }
         if (hp <= 0)
         {
-            GUILayout.Label("\n Press R for restart or X for exit from the game", st);
+            GUILayout.Label(endMessage, st);
             end = true;
         }
         if (!Helper.InFacility(gameObject))
-        {
+        {             
             GUILayout.Label("YOU WIN!!!", style);
             GUILayout.Label(endMessage, st);
             end = true;

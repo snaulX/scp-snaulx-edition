@@ -6,6 +6,6 @@ public class Settings : MonoBehaviour
 {
     private void Start()
     {
-        GetComponent<Button>().onClick.AddListener(() => Handler.disabled[0].SetActive(false));
+        GetComponent<Button>().onClick.AddListener(() => Helper.disabled[0].SetActive(false));
     }
 }

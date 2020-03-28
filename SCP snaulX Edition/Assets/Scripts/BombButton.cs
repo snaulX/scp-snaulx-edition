@@ -8,7 +8,7 @@ public class BombButton : MonoBehaviour
 
     public float fps
     {
-        get => GameObject.Find("player").GetComponent<Main>().fps;
+        get => GameObject.Find("Main").GetComponent<Main>().fps;
     }
     // Use this for initialization
     void Start()
@@ -29,8 +29,7 @@ public class BombButton : MonoBehaviour
                 player_can_take = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    GameObject[] doorobjs = GameObject.FindGameObjectsWithTag("door");
-                    foreach (GameObject obj in doorobjs)
+                    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("door"))
                     {
                         obj.GetComponent<Door>().Unlock();
                     }
@@ -76,14 +75,5 @@ public class BombButton : MonoBehaviour
             style.margin = new RectOffset(20, 20, 20, 20);
             GUILayout.Label(seconds.ToString() + " seconds before the explosion", style);
         }
-    }
-}
-
-public static class Helper
-{
-    public static bool InFacility(GameObject gameObject)
-    {
-        Vector3 pos = gameObject.transform.position;
-        return pos.x < 33 && pos.z > -43.5;
     }
 }

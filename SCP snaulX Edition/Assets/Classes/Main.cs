@@ -13,7 +13,7 @@ public enum LevelDifficulty
 public class Main : MonoBehaviour
 {
     public Texture handsymbol, handsymbol2;
-    public AudioClip pick_card;
+    public AudioClip toBeContinued, pickItem, operateDoor;
     public float updateInterval = 0.5F;
     private double lastInterval;
     private int frames = 0;
@@ -46,8 +46,14 @@ public class Main : MonoBehaviour
     }
 }
 
-public static class Handler
+public static class Helper
 {
     public static readonly List<KeyCode> keyCodes = Enum.GetValues(typeof(KeyCode)).Cast<KeyCode>().ToList();
     public static List<GameObject> disabled = new List<GameObject>();
+
+    public static bool InFacility(GameObject gameObject)
+    {
+        Vector3 pos = gameObject.transform.position;
+        return pos.x < 33 && pos.z > -43.5;
+    }
 }
