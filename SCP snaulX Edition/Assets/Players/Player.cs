@@ -23,15 +23,18 @@ public class Player : MonoBehaviour
     Texture take, open;
     Camera camera;
     GUIStyle style = new GUIStyle(), st;
-    KeyCode restart, exitGame, piсkItem, operateDoor;
+    KeyCode restart, exitGame, piсkItem, operateDoor, closeSomething;
     string endMessage;
-    
+
+    private KeyCode GetKeyCodeFromHelper(string prefName) => Helper.keyCodes[PlayerPrefs.GetInt(prefName)];
+
     void Start()
     {
-        restart = Helper.keyCodes[PlayerPrefs.GetInt("restart")];
-        exitGame = Helper.keyCodes[PlayerPrefs.GetInt("exitGame")];
-        piсkItem = Helper.keyCodes[PlayerPrefs.GetInt("pickItem")];
-        operateDoor = Helper.keyCodes[PlayerPrefs.GetInt("operateDoor")];
+        restart = GetKeyCodeFromHelper("restart");
+        exitGame = GetKeyCodeFromHelper("exitGame");
+        piсkItem = GetKeyCodeFromHelper("pickItem");
+        operateDoor = GetKeyCodeFromHelper("operateDoor");
+        closeSomething = GetKeyCodeFromHelper("closeSomething");
         Debug.Log(operateDoor);
         endMessage = $"Press {restart.ToString()} for restart or {exitGame.ToString()} for exit from the game";
         camera = GetComponentInChildren<Camera>();
@@ -98,7 +101,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Cancel"))
+        if (Input.GetKey(closeSomething))
         {
             Cursor.visible = true;
             SceneManager.LoadScene(0);
