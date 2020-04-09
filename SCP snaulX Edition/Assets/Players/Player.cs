@@ -2,13 +2,14 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     const float ARM_LENGTH = 7.7f;
     public float speed;
     public short hp;
-    public bool end = false, die = false, can_take = false, can_open = false;
+    public bool die = false, canTake = false, canOpen = false;
     Vector3 pos
     {
         get => transform.position;
@@ -18,12 +19,14 @@ public class Player : MonoBehaviour
     CharacterController characterController;
     public SecurityLevel level;
     LevelDifficulty lvl;
-    public GameObject spawn;
+    public GameObject spawn, take, open, deathMessage, winMessage;
     Transform spawn_info;
-    Texture take, open;
     Camera camera;
     GUIStyle style = new GUIStyle(), st;
     KeyCode restart, exitGame, piсkItem, operateDoor, closeSomething;
+    [SerializeField]
+    Text fpsView;
+    Main main;
     string endMessage;
 
     private KeyCode GetKeyCodeFromHelper(string prefName) => Helper.keyCodes[PlayerPrefs.GetInt(prefName)];
@@ -42,11 +45,18 @@ public class Player : MonoBehaviour
         style.fontSize = 220;
         st = new GUIStyle(style);
         st.fontSize = 75;
-        Main main = GameObject.Find("Main").GetComponent<Main>();
-        take = main.handsymbol2;
-        open = main.handsymbol;
+        main = GameObject.Find("Main").GetComponent<Main>();
         toBeContinued = gameObject.AddComponent<AudioSource>();
         toBeContinued.clip = main.toBeContinued;
+        take = GameObject.Find("Take");
+        take.SetActive(false);
+        open = GameObject.Find("Open");
+        open.SetActive(false);
+        winMessage = GameObject.Find("WinText");
+        winMessage.SetActive(false);
+        deathMessage = GameObject.Find("DeathText");
+        deathMessage.GetComponent<Text>().text = endMessage;
+        deathMessage.SetActive(false);
         spawn_info = spawn.transform;
         audio = GetComponent<AudioSource>();
         Cursor.visible = false;
@@ -101,6 +111,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        fpsView.text = main.fps + " FPS";
+        canTake = false;
+        canOpen = false;
         if (Input.GetKey(closeSomething))
         {
             Cursor.visible = true;
@@ -108,6 +121,8 @@ public class Player : MonoBehaviour
         }
         if (hp <= 0)
         {
+            winMessage.SetActive(false);
+            deathMessage.SetActive(true);
             if (!die) Die();
             if (Input.GetKey(restart)) SceneManager.LoadScene("SampleScene");
             else if (Input.GetKey(exitGame)) Application.Quit();
@@ -118,10 +133,17 @@ public class Player : MonoBehaviour
             {
                 toBeContinued.Play();
             }
-            if (end)
+            if (!Helper.InFacility(gameObject))
             {
+                winMessage.SetActive(true);
+                deathMessage.SetActive(true);
                 if (Input.GetKey(restart)) SceneManager.LoadScene("SampleScene");
                 else if (Input.GetKey(exitGame)) Application.Quit();
+            }
+            else
+            {
+                deathMessage.SetActive(false);
+                winMessage.SetActive(false);
             }
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             RaycastHit hit;
@@ -133,7 +155,7 @@ public class Player : MonoBehaviour
                 Keycard card = target.GetComponent<Keycard>();
                 if (card != null)
                 {
-                    can_take = true;
+                    canTake = true;
                     if (Input.GetKeyDown(piсkItem))
                     {
                         try { pickItem_audio.Play(); }
@@ -152,17 +174,13 @@ public class Player : MonoBehaviour
                 else if (tname.StartsWith("door") || tname == "LeftDoor" ||
                     tname == "RightDoor" || tname.StartsWith("toilet-door"))
                 {
+                    canOpen = true;
                     if (Input.GetKeyDown(operateDoor))
                     {
                         Door door = target.GetComponent<Door>() ?? target.GetComponentInChildren<Door>();
                         if (level >= door.level) door.Open();
                         else door.audio.Play();
                     }
-                }
-                else
-                {
-                    can_take = false;
-                    can_open = false;
                 }
             }
             else if (Physics.Raycast(ray, out hit)) //on other distance
@@ -174,31 +192,14 @@ public class Player : MonoBehaviour
                     target.GetComponent<AI>().Stop();
                 }
             }
+            take.SetActive(canTake);
+            open.SetActive(canOpen);
             float x = Input.GetAxis("Vertical"), z = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(z * speed * Time.deltaTime, 0f, x * speed * Time.deltaTime);
             transform.Translate(movement);
             movement = Vector3.ClampMagnitude(movement, speed);
             movement = transform.TransformDirection(movement);
             characterController.Move(movement);
-        }
-    }
-
-    private void OnGUI()
-    {
-        if (can_take)
-        {
-            GUI.DrawTexture(new Rect(100, 100, 100, 100), take);
-        }
-        if (hp <= 0)
-        {
-            GUILayout.Label(endMessage, st);
-            end = true;
-        }
-        if (!Helper.InFacility(gameObject))
-        {             
-            GUILayout.Label("YOU WIN!!!", style);
-            GUILayout.Label(endMessage, st);
-            end = true;
         }
     }
 

@@ -25,13 +25,13 @@ public class Main : MonoBehaviour
         frames = 0;
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUIStyle style = new GUIStyle();
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = 20;
         GUILayout.Label(" " + fps.ToString() + " FPS", style);
-    }
+    }*/
 
     void Update()
     {
