@@ -122,6 +122,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -282,6 +283,7 @@
     <xs:attribute name="CheckBoxFillOrigin" type="xs:string" />
     <xs:attribute name="CheckBoxAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="CheckBoxUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="CheckBoxPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="CheckBoxMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="CheckBoxOnCullStateChanged" type="xs:string" />
     <xs:attribute name="CheckBoxMaskable" type="xs:string" />
@@ -366,6 +368,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -452,6 +455,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -579,6 +583,7 @@
     <xs:attribute name="HorizontalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaskable" type="xs:string" />
@@ -617,6 +622,7 @@
     <xs:attribute name="HorizontalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaskable" type="xs:string" />
@@ -655,6 +661,7 @@
     <xs:attribute name="HorizontalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaskable" type="xs:string" />
@@ -698,6 +705,7 @@
     <xs:attribute name="VerticalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaskable" type="xs:string" />
@@ -736,6 +744,7 @@
     <xs:attribute name="VerticalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaskable" type="xs:string" />
@@ -774,6 +783,7 @@
     <xs:attribute name="VerticalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaskable" type="xs:string" />
@@ -862,6 +872,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -958,6 +969,7 @@
     <xs:attribute name="ButtonBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="ButtonBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="ButtonBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="ButtonBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="ButtonBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="ButtonBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="ButtonBackgroundMaskable" type="xs:string" />
@@ -1075,6 +1087,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -1160,6 +1173,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -1251,6 +1265,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -1412,6 +1427,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -1500,6 +1516,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -1584,6 +1601,7 @@
     <xs:attribute name="FillOrigin" type="xs:string" />
     <xs:attribute name="AlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="UseSpriteMesh" type="xs:string" />
+    <xs:attribute name="PixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="Material" type="Asset_MaterialAsset" />
     <xs:attribute name="OnCullStateChanged" type="xs:string" />
     <xs:attribute name="Maskable" type="xs:string" />
@@ -1750,6 +1768,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2070,6 +2089,7 @@
     <xs:attribute name="HorizontalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaskable" type="xs:string" />
@@ -2108,6 +2128,7 @@
     <xs:attribute name="HorizontalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaskable" type="xs:string" />
@@ -2146,6 +2167,7 @@
     <xs:attribute name="HorizontalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaskable" type="xs:string" />
@@ -2189,6 +2211,7 @@
     <xs:attribute name="VerticalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaskable" type="xs:string" />
@@ -2227,6 +2250,7 @@
     <xs:attribute name="VerticalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaskable" type="xs:string" />
@@ -2265,6 +2289,7 @@
     <xs:attribute name="VerticalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaskable" type="xs:string" />
@@ -2355,6 +2380,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2450,6 +2476,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2536,6 +2563,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2623,6 +2651,7 @@
     <xs:attribute name="RadioButtonFillOrigin" type="xs:string" />
     <xs:attribute name="RadioButtonAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="RadioButtonUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="RadioButtonPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="RadioButtonMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="RadioButtonOnCullStateChanged" type="xs:string" />
     <xs:attribute name="RadioButtonMaskable" type="xs:string" />
@@ -2707,6 +2736,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2792,6 +2822,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2876,6 +2907,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -2988,6 +3020,7 @@
     <xs:attribute name="HorizontalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaskable" type="xs:string" />
@@ -3026,6 +3059,7 @@
     <xs:attribute name="HorizontalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaskable" type="xs:string" />
@@ -3064,6 +3098,7 @@
     <xs:attribute name="HorizontalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaskable" type="xs:string" />
@@ -3107,6 +3142,7 @@
     <xs:attribute name="VerticalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaskable" type="xs:string" />
@@ -3145,6 +3181,7 @@
     <xs:attribute name="VerticalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaskable" type="xs:string" />
@@ -3183,6 +3220,7 @@
     <xs:attribute name="VerticalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaskable" type="xs:string" />
@@ -3341,6 +3379,7 @@
     <xs:attribute name="HorizontalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBarMaskable" type="xs:string" />
@@ -3379,6 +3418,7 @@
     <xs:attribute name="HorizontalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarHandleMaskable" type="xs:string" />
@@ -3417,6 +3457,7 @@
     <xs:attribute name="HorizontalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HorizontalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HorizontalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HorizontalScrollbarBackgroundMaskable" type="xs:string" />
@@ -3460,6 +3501,7 @@
     <xs:attribute name="VerticalScrollbarBarFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBarMaskable" type="xs:string" />
@@ -3498,6 +3540,7 @@
     <xs:attribute name="VerticalScrollbarHandleFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarHandleMaskable" type="xs:string" />
@@ -3536,6 +3579,7 @@
     <xs:attribute name="VerticalScrollbarBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="VerticalScrollbarBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="VerticalScrollbarBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="VerticalScrollbarBackgroundMaskable" type="xs:string" />
@@ -3676,6 +3720,7 @@
     <xs:attribute name="BarFillOrigin" type="xs:string" />
     <xs:attribute name="BarAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BarUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BarPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BarMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BarOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BarMaskable" type="xs:string" />
@@ -3714,6 +3759,7 @@
     <xs:attribute name="HandleFillOrigin" type="xs:string" />
     <xs:attribute name="HandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="HandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="HandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="HandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="HandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="HandleMaskable" type="xs:string" />
@@ -3753,6 +3799,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -3894,6 +3941,7 @@
     <xs:attribute name="SelectionTabBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="SelectionTabBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="SelectionTabBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="SelectionTabBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="SelectionTabBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="SelectionTabBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="SelectionTabBackgroundMaskable" type="xs:string" />
@@ -3933,6 +3981,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -4027,6 +4076,7 @@
     <xs:attribute name="SliderFillOrigin" type="xs:string" />
     <xs:attribute name="SliderAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="SliderUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="SliderPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="SliderMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="SliderOnCullStateChanged" type="xs:string" />
     <xs:attribute name="SliderMaskable" type="xs:string" />
@@ -4065,6 +4115,7 @@
     <xs:attribute name="SliderFillFillOrigin" type="xs:string" />
     <xs:attribute name="SliderFillAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="SliderFillUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="SliderFillPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="SliderFillMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="SliderFillOnCullStateChanged" type="xs:string" />
     <xs:attribute name="SliderFillMaskable" type="xs:string" />
@@ -4103,6 +4154,7 @@
     <xs:attribute name="SliderHandleFillOrigin" type="xs:string" />
     <xs:attribute name="SliderHandleAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="SliderHandleUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="SliderHandlePixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="SliderHandleMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="SliderHandleOnCullStateChanged" type="xs:string" />
     <xs:attribute name="SliderHandleMaskable" type="xs:string" />
@@ -4142,6 +4194,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -4359,6 +4412,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -4450,6 +4504,7 @@
     <xs:attribute name="TabListBackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="TabListBackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="TabListBackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="TabListBackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="TabListBackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="TabListBackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="TabListBackgroundMaskable" type="xs:string" />
@@ -4491,6 +4546,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -4579,6 +4635,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -4851,6 +4908,7 @@
     <xs:attribute name="BackgroundFillOrigin" type="xs:string" />
     <xs:attribute name="BackgroundAlphaHitTestMinimumThreshold" type="xs:string" />
     <xs:attribute name="BackgroundUseSpriteMesh" type="xs:string" />
+    <xs:attribute name="BackgroundPixelsPerUnitMultiplier" type="xs:string" />
     <xs:attribute name="BackgroundMaterial" type="Asset_MaterialAsset" />
     <xs:attribute name="BackgroundOnCullStateChanged" type="xs:string" />
     <xs:attribute name="BackgroundMaskable" type="xs:string" />
@@ -5323,6 +5381,7 @@
       <xs:enumeration value="NintendoNetworkAccount" />
       <xs:enumeration value="Social" />
       <xs:enumeration value="Search" />
+      <xs:enumeration value="DecimalPad" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -5390,6 +5449,15 @@
   <xs:simpleType name="Asset_TMP_FontAsset">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Inconsolata-Regular SDF" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Asset_DefaultAsset">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Materials" />
+      <xs:enumeration value="Fonts" />
+      <xs:enumeration value="Shaders" />
+      <xs:enumeration value="Sprites" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
