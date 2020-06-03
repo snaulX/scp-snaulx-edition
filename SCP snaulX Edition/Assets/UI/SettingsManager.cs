@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     Dropdown pickItem, operateDoor, closeSomething, exitGame, restart;
+    Slider soundVolume;
+    Text soundText;
     void Start()
     {
         Helper.disabled.Add(GameObject.Find("Canvas"));
@@ -40,6 +42,11 @@ public class SettingsManager : MonoBehaviour
         exitGame.value = PlayerPrefs.GetInt("exitGame");
         restart = dropdowns[4];
         restart.value = PlayerPrefs.GetInt("restart");
+        soundVolume = GetComponentInChildren<Slider>();
+        soundVolume.value = PlayerPrefs.GetFloat("soundVolume");
+        soundText = GameObject.Find("SoundText").GetComponent<Text>();
+        soundText.text = "Volume of sound " + (byte)(soundVolume.value * 100);
+        soundVolume.onValueChanged.AddListener((value) => soundText.text = "Volume of sound " + (byte)(value * 100));
     }
     
     private void SaveAll()
@@ -49,6 +56,7 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.SetInt("closeSomething", closeSomething.value);
         PlayerPrefs.SetInt("exitGame", exitGame.value);
         PlayerPrefs.SetInt("restart", restart.value);
+        PlayerPrefs.SetFloat("soundVolume", soundVolume.value);
         PlayerPrefs.Save();
     }
 
