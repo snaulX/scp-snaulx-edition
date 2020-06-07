@@ -33,6 +33,7 @@ public class BombButton : MonoBehaviour
                     {
                         obj.GetComponent<Door>().Unlock();
                     }
+                    audio[0].volume *= PlayerPrefs.GetFloat("soundVolume");
                     audio[0].Play();
                     seconds = 90;
                     audio[1].Play((ulong)audio[0].time);

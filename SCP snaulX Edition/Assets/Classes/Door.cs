@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         audio = GameObject.Find("DoorSound").GetComponent<AudioSource>();
+        audio.volume *= PlayerPrefs.GetFloat("soundVolume");
         x = transform.position.x;
         z = transform.position.z;
     }
