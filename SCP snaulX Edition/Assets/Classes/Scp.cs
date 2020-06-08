@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
-using System;
 
 public class Scp: MonoBehaviour
 {
     public float speed;
     public short damage, hp;
     public AudioSource death_audio;
-    public GameObject enemy
-    {
-        get => GameObject.FindWithTag("Player");
-    }
+    public static GameObject enemy;
     Vector3 position
     {
         get => transform.position;
@@ -29,9 +25,14 @@ public class Scp: MonoBehaviour
         this.hp = hp;
     }
 
+    public void Start()
+    {
+        enemy = GameObject.FindWithTag("Player");
+    }
+
     public void Kill()
     {
-        Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
+        Ray ray = new Ray(new Vector3(position.x, position.y + 7f, position.z), transform.forward);
         RaycastHit hit;
         if (Physics.SphereCast(ray, 3.5f, out hit) && hit.distance < 1f)
         {

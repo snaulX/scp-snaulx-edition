@@ -21,17 +21,10 @@ public class Main : MonoBehaviour
 
     void Start()
     {
+        AI.nodegraph = FindObjectsOfType<Node>();
         lastInterval = Time.realtimeSinceStartup;
         frames = 0;
     }
-
-    /*void OnGUI()
-    {
-        GUIStyle style = new GUIStyle();
-        style.alignment = TextAnchor.UpperLeft;
-        style.fontSize = 20;
-        GUILayout.Label(" " + fps.ToString() + " FPS", style);
-    }*/
 
     void Update()
     {

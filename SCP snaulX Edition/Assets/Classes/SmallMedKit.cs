@@ -9,13 +9,6 @@ public class SmallMedKit : MonoBehaviour
         get => GameObject.Find("player");
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3
@@ -54,11 +47,11 @@ public class SmallMedKit : MonoBehaviour
         }
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if (player_can_take)
         {
             GUI.DrawTexture(new Rect(600, 600, 60, 60), player.GetComponent<Main>().handsymbol2);
         }
-    }
+    }*/
 }

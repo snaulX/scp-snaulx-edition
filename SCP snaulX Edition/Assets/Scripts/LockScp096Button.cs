@@ -7,11 +7,12 @@ public class LockScp096Button : MonoBehaviour
     private bool player_can_take = false;
     [SerializeField]
     float z_minus, z_plus, x_minus, x_plus;
+    Door door;
 
     // Use this for initialization
     void Start()
     {
-
+        door = GameObject.Find("door096").GetComponent<Door>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,6 @@ public class LockScp096Button : MonoBehaviour
                 player_can_take = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Door door = GameObject.Find("door096").GetComponent<Door>();
                     GetComponent<AudioSource>().Play();
                     if (door.Lock) door.Unlock();
                     else door.Lockdown();

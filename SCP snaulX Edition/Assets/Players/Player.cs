@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     LevelDifficulty lvl;
     public GameObject spawn, take, open, deathMessage, winMessage;
     Transform spawn_info;
-    Camera camera;
+    new Camera camera;
     GUIStyle style = new GUIStyle(), st;
     KeyCode restart, exitGame, piсkItem, operateDoor, closeSomething;
     [SerializeField]

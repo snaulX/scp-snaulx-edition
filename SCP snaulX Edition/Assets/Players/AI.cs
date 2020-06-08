@@ -4,23 +4,21 @@ using System;
 
 public class AI : MonoBehaviour
 {
-    Scp scp
-    {
-        get => GetComponent<Scp>();
-    }
+    public static Node[] nodegraph;
+    Scp scp;
     Vector3 pos;
     Vector3 posi
     {
         get => transform.position;
     }
     bool stay = false;
-    // Use this for initialization
+    
     void Start()
     {
+        scp = GetComponent<Scp>();
         pos = new Vector3();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (stay) stay = false;
@@ -39,17 +37,20 @@ public class AI : MonoBehaviour
             RaycastHit hit;
             if (Physics.SphereCast(ray, 1.7f, out hit))
             {
-                scp.Kill();
                 GameObject target = hit.transform.gameObject;
                 Debug.Log(target.name + ' ' + name);
                 if (hit.distance < 3.0f && hit.distance > -1f)
                 {
-                    if (target.tag == "glass")
+                    if (target.CompareTag("glass"))
                     {
                         transform.LookAt(target.transform);
                         transform.Translate(3f, 0f, 0f);
                     }
-                    else if (target.tag != "Player")
+                    else if (target.CompareTag("Player"))
+                    {
+                        scp.Kill();
+                    }
+                    else
                     {
                         transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
                     }

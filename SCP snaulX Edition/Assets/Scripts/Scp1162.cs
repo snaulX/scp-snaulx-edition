@@ -11,13 +11,6 @@ public class Scp1162 : MonoBehaviour
         get => GameObject.Find("player");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (-3 < player.transform.position.z - transform.position.z && player.transform.position.z - transform.position.z < 3
@@ -43,10 +36,10 @@ public class Scp1162 : MonoBehaviour
 
     private void OnGUI()
     {
-        if (player_can_take && player.GetComponent<Player>().hp > 0)
+        /*if (player_can_take && player.GetComponent<Player>().hp > 0)
         {
             GUI.DrawTexture(new Rect(600, 600, 60, 60), player.GetComponent<Main>().handsymbol2);
-        }
+        }*/
         if (loose_hp > 0)
         {
             GUI.Label(new Rect(100, 300, 100, 50), $"You have {GameObject.Find("player").GetComponent<Player>().hp} hp");
