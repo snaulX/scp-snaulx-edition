@@ -21,7 +21,7 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        AI.nodegraph = FindObjectsOfType<Node>();
+        AI.nodegraph = GameObject.FindGameObjectsWithTag("Navigation Node");
         lastInterval = Time.realtimeSinceStartup;
         frames = 0;
     }

@@ -9,6 +9,7 @@ TagManager:
   - d-class
   - door
   - glass
+  - Navigation Node
   layers:
   - Default
   - TransparentFX

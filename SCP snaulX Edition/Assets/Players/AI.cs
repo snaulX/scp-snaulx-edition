@@ -4,7 +4,7 @@ using System;
 
 public class AI : MonoBehaviour
 {
-    public static Node[] nodegraph;
+    public static GameObject[] nodegraph;
     Scp scp;
     Vector3 pos;
     Vector3 posi
@@ -35,42 +35,21 @@ public class AI : MonoBehaviour
             GetComponent<CharacterController>().Move(movement);
             Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), transform.forward);
             RaycastHit hit;
-            if (Physics.SphereCast(ray, 1.7f, out hit))
+            if (Physics.SphereCast(ray, 1.7f, out hit) && 
+                hit.distance < 3.0f && hit.distance > -1f)
             {
                 GameObject target = hit.transform.gameObject;
-                Debug.Log(target.name + ' ' + name);
-                if (hit.distance < 3.0f && hit.distance > -1f)
-                {
-                    if (target.CompareTag("glass"))
-                    {
-                        transform.LookAt(target.transform);
-                        transform.Translate(3f, 0f, 0f);
-                    }
-                    else if (target.CompareTag("Player"))
-                    {
-                        scp.Kill();
-                    }
-                    else
-                    {
-                        transform.Rotate(0, UnityEngine.Random.Range(-110, 110), 0);
-                    }
-                    try
-                    {
-                        Door door = target.GetComponent<Door>();
-                        if (!door.Lock && door.level < SecurityLevel.MTF)
-                        {
-                            door.Open();
-                        }
-                        else
-                        {
-                            transform.Rotate(0, UnityEngine.Random.Range(-120, 120), 0);
-                        }
-                    }
-                    catch (NullReferenceException) { }
-                }
+                if (target.CompareTag("Player")) scp.Kill();
+                else if (target.CompareTag("door")) target.GetComponent<Door>().Open();
             }
         }
     }
 
     public void Stop() => stay = true;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        try { collision.gameObject.GetComponent<Node>().RandomRotate(gameObject); }
+        catch { }
+    }
 }
