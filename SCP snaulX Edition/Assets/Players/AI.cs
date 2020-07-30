@@ -49,7 +49,7 @@ public class AI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        try { collision.gameObject.GetComponent<Node>().RandomRotate(gameObject); }
-        catch { }
+        //try { collision.gameObject.GetComponent<Node>().RandomRotate(gameObject); }
+        //catch { }
     }
 }
