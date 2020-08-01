@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Newtonsoft.Json;
 
 public class Config
 {
-    #region Private fields and methods
-    [JsonRequired]
+    #region Private fields
     private Dictionary<string, int> nameID;
-    [JsonRequired]
     private Dictionary<int, object> parameters;
     #endregion
 
@@ -22,19 +19,18 @@ public class Config
     #region Save&load parameters
     public void LoadParameters()
     {
-        using (StreamReader file = File.OpenText("config.json"))
+        using (StreamReader sr = File.OpenText("config.json"))
         {
+            Config cfg = JsonUtility.FromJson<Config>(sr.ReadToEnd());
+            nameID = cfg.nameID;
+            parameters = cfg.parameters;
         }
     }
     public void SaveParameters()
     {
-        JsonSerializer serializer = new JsonSerializer();
-        serializer.NullValueHandling = NullValueHandling.Ignore;
-
         using (StreamWriter sw = new StreamWriter("config.json"))
-        using (JsonWriter writer = new JsonTextWriter(sw))
         {
-            serializer.Serialize(writer, this);
+            sw.Write(JsonUtility.ToJson(this));
         }
     }
     #endregion
@@ -246,261 +242,149 @@ public class Config
     #endregion
 
     #region Set parameters by name
-    // сорри если не любите goto
     public void SetParameter(string name, object value)
     {
-        if (nameID.ContainsKey(name))
-            SetParameter(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetParameter(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetParameter(GetParameterID(name), value);
     }
     public void SetBool(string name, bool value)
     {
-        if (nameID.ContainsKey(name))
-            SetBool(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetBool(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetBool(GetParameterID(name), value);
     }
     public void SetChar(string name, char value)
     {
-        if (nameID.ContainsKey(name))
-            SetChar(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetChar(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetChar(GetParameterID(name), value);
     }
     public void SetInt(string name, int value)
     {
-        if (nameID.ContainsKey(name))
-            SetInt(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetInt(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetInt(GetParameterID(name), value);
     }
     public void SetFloat(string name, float value)
     {
-        if (nameID.ContainsKey(name))
-            SetFloat(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetFloat(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetFloat(GetParameterID(name), value);
     }
     public void SetVector3(string name, Vector3 value)
     {
-        if (nameID.ContainsKey(name))
-            SetVector3(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetVector3(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetVector3(GetParameterID(name), value);
     }
     public void SetQuaternion(string name, Quaternion value)
     {
-        if (nameID.ContainsKey(name))
-            SetQuaternion(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetQuaternion(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetQuaternion(GetParameterID(name), value);
     }
     public void SetString(string name, string value)
     {
-        if (nameID.ContainsKey(name))
-            SetString(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetString(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetString(GetParameterID(name), value);
     }
     public void SetKeyCode(string name, KeyCode value)
     {
-        if (nameID.ContainsKey(name))
-            SetKeyCode(nameID[name], value);
-        else
-        {
-            generate_id:
-            int id = new System.Random().Next(0, 99999);
-            if (!parameters.ContainsKey(id))
-            {
-                SetKeyCode(id, value);
-                nameID.Add(name, id);
-            }
-            else
-                goto generate_id;
-        }
+        SetKeyCode(GetParameterID(name), value);
     }
     #endregion
 
     #region Set parameters by ID
     public void SetParameter(int parameterID, object value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetBool(int parameterID, bool value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetChar(int parameterID, char value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetInt(int parameterID, int value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetFloat(int parameterID, float value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetVector3(int parameterID, Vector3 value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetQuaternion(int parameterID, Quaternion value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetString(int parameterID, string value)
     {
-        try
-        {
-            parameters[parameterID] = value;
-        }
-        catch (KeyNotFoundException)
-        {
-            // something
-        }
+        parameters[parameterID] = value;
     }
     public void SetKeyCode(int parameterID, KeyCode value)
     {
-        try
+        parameters[parameterID] = value;
+    }
+    #endregion
+
+    #region Add parameters
+    public void AddParameter(string name, int id, object value)
+    {
+        nameID.Add(name, id);
+        parameters.Add(id, value);
+    }
+    /// <summary>
+    /// Add empty parameter with getted name, ID and type
+    /// </summary>
+    /// <remarks>Type can be only: bool, char, int, float, string, Vector3, Quanternion, KeyCode</remarks>
+    public void AddParameter(string name, int id, Type type)
+    {
+        object value;
+        if (type == typeof(bool))
         {
-            parameters[parameterID] = value;
+            value = false;
         }
-        catch (KeyNotFoundException)
+        else if (type == typeof(char))
         {
-            // something
+            value = '\0';
         }
+        else if (type == typeof(int))
+        {
+            value = 0;
+        }
+        else if (type == typeof(float))
+        {
+            value = 0f;
+        }
+        else if (type == typeof(Vector3))
+        {
+            value = new Vector3();
+        }
+        else if (type == typeof(Quaternion))
+        {
+            value = new Quaternion();
+        }
+        else if (type == typeof(string))
+        {
+            value = "";
+        }
+        else if (type == typeof(KeyCode))
+        {
+            value = KeyCode.None;
+        }
+        else
+        {
+            throw new ArgumentException($"Not valid type of parameter '{type.Name}'");
+        }
+        AddParameter(name, id, value);
+    }
+    public void AddParameter(string name, Type type)
+    {
+        int id = (int) new System.Random().NextDouble() * 1000; // 5-значный ID
+        if (parameters.ContainsKey(id))
+            AddParameter(name, type);
+        else
+            AddParameter(name, id, type);
+    }
+    public void AddParameter(string name, object value)
+    {
+        int id = (int)new System.Random().NextDouble() * 1000; // 5-значный ID
+        if (parameters.ContainsKey(id))
+            AddParameter(name, value);
+        else
+            AddParameter(name, id, value);
     }
     #endregion
 
@@ -508,8 +392,7 @@ public class Config
     /// Get parameter ID by name
     /// </summary>
     /// <param name="name">Name of parameter for ID</param>
-    /// <remarks>Return -1 if not found parameter</remarks>
-    /// <returns>Parameter ID</returns>
+    /// <returns>Parameter ID or if this ID not exists - return -1</returns>
     public int GetParameterID(string name)
     {
         try

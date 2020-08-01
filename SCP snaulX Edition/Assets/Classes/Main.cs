@@ -25,10 +25,11 @@ public class Main : MonoBehaviour
         lastInterval = Time.realtimeSinceStartup;
         frames = 0;
         Config cfg = new Config();
-        cfg.SetParameter("Resolution", "1920x1080");
-        cfg.SetVector3("LastPosition", new Vector3());
-        var keyID = cfg.GetParameterID("Resolution");
-        cfg.SetParameter(keyID, KeyCode.W);
+        cfg.AddParameter("Forward", KeyCode.W);
+        cfg.AddParameter("GG", 10);
+        cfg.SetInt("GG", 100);
+        Debug.Log(cfg.GetKeyCode("Forward"));
+        cfg.SaveParameters();
     }
 
     void Update()

@@ -3489,9 +3489,9 @@ namespace Discord
         public void IsPointInsideClickZone(Int32 x, Int32 y)
         {
             var res = Methods.IsPointInsideClickZone(MethodsPtr, x, y);
-            if (res != Result.Ok)
+            if (!res)
             {
-                throw new ResultException(res);
+                throw new ResultException(Result.Conflict);
             }
         }
 
