@@ -8,12 +8,27 @@ public class Config
     #region Private fields
     private Dictionary<string, int> nameID;
     private Dictionary<int, object> parameters;
+    private Dictionary<int, bool> parametersBool;
+    private Dictionary<int, char> parametersChar;
+    private Dictionary<int, int> parametersInt;
+    private Dictionary<int, float> parametersFloat;
+    private Dictionary<int, string> parametersString;
+    private Dictionary<int, Vector3> parametersVector;
+    private Dictionary<int, Quaternion> parametersQuaternion;
+    private Dictionary<int, KeyCode> parametersKey;
     #endregion
 
     public Config()
     {
         nameID = new Dictionary<string, int>();
         parameters = new Dictionary<int, object>();
+        parametersBool = new Dictionary<int, bool>();
+        parametersChar = new Dictionary<int, char>();
+        parametersFloat = new Dictionary<int, float>();
+        parametersInt = new Dictionary<int, int>();
+        parametersKey = new Dictionary<int, KeyCode>();
+        parametersQuaternion = new Dictionary<int, Quaternion>();
+        parametersKey = new Dictionary<int, KeyCode>();
     }
 
     #region Save&load parameters
@@ -24,6 +39,14 @@ public class Config
             Config cfg = JsonUtility.FromJson<Config>(sr.ReadToEnd());
             nameID = cfg.nameID;
             parameters = cfg.parameters;
+            parametersBool = cfg.parametersBool;
+            parametersChar = cfg.parametersChar;
+            parametersFloat = cfg.parametersFloat;
+            parametersInt = cfg.parametersInt;
+            parametersKey = cfg.parametersKey;
+            parametersQuaternion = cfg.parametersQuaternion;
+            parametersString = cfg.parametersString;
+            parametersVector = cfg.parametersVector;
         }
     }
     public void SaveParameters()
@@ -139,23 +162,83 @@ public class Config
     #endregion
 
     #region Get parameters by ID
-    // If parameter with this ID not found - returned null
+    /// <summary>
+    /// Check parameters of any types
+    /// </summary>
+    /// <param name="parameterID"></param>
+    /// <returns>parameter. If parameter not found - return null</returns>
     public object GetParameter(int parameterID)
     {
         try
         {
-            return parameters[parameterID];
+            return parameters[parameterID]; // object
         }
         catch (KeyNotFoundException)
         {
-            return null;
+            try
+            {
+                return parametersBool[parameterID]; // bool
+            }
+            catch (KeyNotFoundException)
+            {
+                try
+                {
+                    return parametersChar[parameterID]; // char
+                }
+                catch (KeyNotFoundException)
+                {
+                    try
+                    {
+                        return parametersInt[parameterID]; // int
+                    }
+                    catch (KeyNotFoundException)
+                    {
+                        try
+                        {
+                            return parametersFloat[parameterID]; // float
+                        }
+                        catch (KeyNotFoundException)
+                        {
+                            try
+                            {
+                                return parametersString[parameterID]; // string
+                            }
+                            catch (KeyNotFoundException)
+                            {
+                                try
+                                {
+                                    return parametersVector[parameterID]; // Vector3
+                                }
+                                catch (KeyNotFoundException)
+                                {
+                                    try
+                                    {
+                                        return parametersQuaternion[parameterID]; // Quaternion
+                                    }
+                                    catch (KeyNotFoundException)
+                                    {
+                                        try
+                                        {
+                                            return parametersKey[parameterID]; // KeyCode
+                                        }
+                                        catch (KeyNotFoundException)
+                                        {
+                                            return null;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     public bool? GetBool(int parameterID)
     {
         try
         {
-            return (bool)parameters[parameterID];
+            return parametersBool[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -166,7 +249,7 @@ public class Config
     {
         try
         {
-            return (char)parameters[parameterID];
+            return parametersChar[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -177,7 +260,7 @@ public class Config
     {
         try
         {
-            return (int)parameters[parameterID];
+            return parametersInt[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -188,7 +271,7 @@ public class Config
     {
         try
         {
-            return (float)parameters[parameterID];
+            return parametersFloat[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -199,7 +282,7 @@ public class Config
     {
         try
         {
-            return (Vector3)parameters[parameterID];
+            return parametersVector[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -210,7 +293,7 @@ public class Config
     {
         try
         {
-            return (Quaternion)parameters[parameterID];
+            return parametersQuaternion[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -221,7 +304,7 @@ public class Config
     {
         try
         {
-            return (string)parameters[parameterID];
+            return parametersString[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -232,7 +315,7 @@ public class Config
     {
         try
         {
-            return (KeyCode)parameters[parameterID];
+            return parametersKey[parameterID];
         }
         catch (KeyNotFoundException)
         {
@@ -283,39 +366,56 @@ public class Config
     #region Set parameters by ID
     public void SetParameter(int parameterID, object value)
     {
-        parameters[parameterID] = value;
+        if (value is bool b)
+            SetBool(parameterID, b);
+        else if (value is char c)
+            SetChar(parameterID, c);
+        else if (value is int i)
+            SetInt(parameterID, i);
+        else if (value is float f)
+            SetFloat(parameterID, f);
+        else if (value is string s)
+            SetString(parameterID, s);
+        else if (value is Vector3 v)
+            SetVector3(parameterID, v);
+        else if (value is Quaternion q)
+            SetQuaternion(parameterID, q);
+        else if (value is KeyCode k)
+            SetKeyCode(parameterID, k);
+        else
+            parameters[parameterID] = value;
     }
     public void SetBool(int parameterID, bool value)
     {
-        parameters[parameterID] = value;
+        parametersBool[parameterID] = value;
     }
     public void SetChar(int parameterID, char value)
     {
-        parameters[parameterID] = value;
+        parametersChar[parameterID] = value;
     }
     public void SetInt(int parameterID, int value)
     {
-        parameters[parameterID] = value;
+        parametersInt[parameterID] = value;
     }
     public void SetFloat(int parameterID, float value)
     {
-        parameters[parameterID] = value;
+        parametersFloat[parameterID] = value;
     }
     public void SetVector3(int parameterID, Vector3 value)
     {
-        parameters[parameterID] = value;
+        parametersVector[parameterID] = value;
     }
     public void SetQuaternion(int parameterID, Quaternion value)
     {
-        parameters[parameterID] = value;
+        parametersQuaternion[parameterID] = value;
     }
     public void SetString(int parameterID, string value)
     {
-        parameters[parameterID] = value;
+        parametersString[parameterID] = value;
     }
     public void SetKeyCode(int parameterID, KeyCode value)
     {
-        parameters[parameterID] = value;
+        parametersKey[parameterID] = value;
     }
     #endregion
 
@@ -323,7 +423,24 @@ public class Config
     public void AddParameter(string name, int id, object value)
     {
         nameID.Add(name, id);
-        parameters.Add(id, value);
+        if (value is bool b)
+            parametersBool.Add(id, b);
+        else if (value is char c)
+            parametersChar.Add(id, c);
+        else if (value is int i)
+            parametersInt.Add(id, i);
+        else if (value is float f)
+            parametersFloat.Add(id, f);
+        else if (value is string str)
+            parametersString.Add(id, str);
+        else if (value is Vector3 vect)
+            parametersVector.Add(id, vect);
+        else if (value is Quaternion q)
+            parametersQuaternion.Add(id, q);
+        else if (value is KeyCode key)
+            parametersKey.Add(id, key);
+        else
+            parameters.Add(id, value);
     }
     /// <summary>
     /// Add empty parameter with getted name, ID and type
@@ -331,44 +448,44 @@ public class Config
     /// <remarks>Type can be only: bool, char, int, float, string, Vector3, Quanternion, KeyCode</remarks>
     public void AddParameter(string name, int id, Type type)
     {
-        object value;
+        nameID.Add(name, id);
         if (type == typeof(bool))
         {
-            value = false;
+            parametersBool.Add(id, false);
         }
         else if (type == typeof(char))
         {
-            value = '\0';
+            parametersChar.Add(id, '\0');
         }
         else if (type == typeof(int))
         {
-            value = 0;
+            parametersInt.Add(id, 0);
         }
         else if (type == typeof(float))
         {
-            value = 0f;
+            parametersFloat.Add(id, 0f);
         }
         else if (type == typeof(Vector3))
         {
-            value = new Vector3();
+            parametersVector.Add(id, new Vector3());
         }
         else if (type == typeof(Quaternion))
         {
-            value = new Quaternion();
+            parametersQuaternion.Add(id, new Quaternion());
         }
         else if (type == typeof(string))
         {
-            value = "";
+            parametersString.Add(id, "");
         }
         else if (type == typeof(KeyCode))
         {
-            value = KeyCode.None;
+            parametersKey.Add(id, KeyCode.None);
         }
         else
         {
+            nameID.Remove(name);
             throw new ArgumentException($"Not valid type of parameter '{type.Name}'");
         }
-        AddParameter(name, id, value);
     }
     public void AddParameter(string name, Type type)
     {
