@@ -24,13 +24,6 @@ public class Main : MonoBehaviour
         AI.nodegraph = GameObject.FindGameObjectsWithTag("Navigation Node");
         lastInterval = Time.realtimeSinceStartup;
         frames = 0;
-        Config cfg = new Config();
-        cfg.AddParameter("Forward", KeyCode.W);
-        cfg.AddParameter("GG", 10);
-        cfg.SetInt("GG", 100);
-        Debug.Log(cfg.GetKeyCode("Forward"));
-        cfg.SaveParameters();
-        Debug.Log(cfg.GetInt(cfg.GetParameterID("GG")));
     }
 
     void Update()

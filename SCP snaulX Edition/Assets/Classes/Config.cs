@@ -14,8 +14,8 @@ public class Config
     public Dictionary<int, int> parametersInt = new Dictionary<int, int>();
     public Dictionary<int, float> parametersFloat = new Dictionary<int, float>();
     public Dictionary<int, string> parametersString = new Dictionary<int, string>();
-    public Dictionary<int, Vector3> parametersVector = new Dictionary<int, Vector3>();
-    public Dictionary<int, Quaternion> parametersQuaternion = new Dictionary<int, Quaternion>();
+    public Dictionary<int, float[]> parametersVector = new Dictionary<int, float[]>(),
+        parametersQuaternion = new Dictionary<int, float[]>();
     public Dictionary<int, KeyCode> parametersKey = new Dictionary<int, KeyCode>();
     #endregion
 
@@ -33,8 +33,8 @@ public class Config
             parametersInt = cfg.parametersInt;
             parametersKey = cfg.parametersKey;
             parametersQuaternion = cfg.parametersQuaternion;
-            parametersString = cfg.parametersString;
             parametersVector = cfg.parametersVector;
+            parametersString = cfg.parametersString;
         }
     }
     public void SaveParameters()
@@ -270,7 +270,8 @@ public class Config
     {
         try
         {
-            return parametersVector[parameterID];
+            float[] points = parametersVector[parameterID];
+            return new Vector3(points[0], points[1], points[2]);
         }
         catch (KeyNotFoundException)
         {
@@ -281,7 +282,8 @@ public class Config
     {
         try
         {
-            return parametersQuaternion[parameterID];
+            float[] points = parametersQuaternion[parameterID];
+            return new Quaternion(points[0], points[1], points[2], points[3]);
         }
         catch (KeyNotFoundException)
         {
@@ -391,11 +393,11 @@ public class Config
     }
     public void SetVector3(int parameterID, Vector3 value)
     {
-        parametersVector[parameterID] = value;
+        parametersVector[parameterID] = new float[] { value.x, value.y, value.z };
     }
     public void SetQuaternion(int parameterID, Quaternion value)
     {
-        parametersQuaternion[parameterID] = value;
+        parametersQuaternion[parameterID] = new float[] { value.x, value.y, value.z, value.w };
     }
     public void SetString(int parameterID, string value)
     {
@@ -422,9 +424,9 @@ public class Config
         else if (value is string str)
             parametersString.Add(id, str);
         else if (value is Vector3 vect)
-            parametersVector.Add(id, vect);
+            parametersVector.Add(id, new float[] { vect.x, vect.y, vect.z });
         else if (value is Quaternion q)
-            parametersQuaternion.Add(id, q);
+            parametersQuaternion.Add(id, new float[] { q.x, q.y, q.z, q.w});
         else if (value is KeyCode key)
             parametersKey.Add(id, key);
         else
@@ -455,11 +457,11 @@ public class Config
         }
         else if (type == typeof(Vector3))
         {
-            parametersVector.Add(id, new Vector3());
+            parametersVector.Add(id, new float[] { 0, 0, 0 });
         }
         else if (type == typeof(Quaternion))
         {
-            parametersQuaternion.Add(id, new Quaternion());
+            parametersQuaternion.Add(id, new float[] { 0, 0, 0, 0 });
         }
         else if (type == typeof(string))
         {
