@@ -30,6 +30,7 @@ public class Main : MonoBehaviour
         cfg.SetInt("GG", 100);
         Debug.Log(cfg.GetKeyCode("Forward"));
         cfg.SaveParameters();
+        Debug.Log(cfg.GetInt(cfg.GetParameterID("GG")));
     }
 
     void Update()

@@ -2,41 +2,29 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class Config
 {
-    #region Private fields
-    private Dictionary<string, int> nameID;
-    private Dictionary<int, object> parameters;
-    private Dictionary<int, bool> parametersBool;
-    private Dictionary<int, char> parametersChar;
-    private Dictionary<int, int> parametersInt;
-    private Dictionary<int, float> parametersFloat;
-    private Dictionary<int, string> parametersString;
-    private Dictionary<int, Vector3> parametersVector;
-    private Dictionary<int, Quaternion> parametersQuaternion;
-    private Dictionary<int, KeyCode> parametersKey;
+    #region Fields
+    public Dictionary<string, int> nameID = new Dictionary<string, int>();
+    public Dictionary<int, object> parameters = new Dictionary<int, object>();
+    public Dictionary<int, bool> parametersBool = new Dictionary<int, bool>();
+    public Dictionary<int, char> parametersChar = new Dictionary<int, char>();
+    public Dictionary<int, int> parametersInt = new Dictionary<int, int>();
+    public Dictionary<int, float> parametersFloat = new Dictionary<int, float>();
+    public Dictionary<int, string> parametersString = new Dictionary<int, string>();
+    public Dictionary<int, Vector3> parametersVector = new Dictionary<int, Vector3>();
+    public Dictionary<int, Quaternion> parametersQuaternion = new Dictionary<int, Quaternion>();
+    public Dictionary<int, KeyCode> parametersKey = new Dictionary<int, KeyCode>();
     #endregion
-
-    public Config()
-    {
-        nameID = new Dictionary<string, int>();
-        parameters = new Dictionary<int, object>();
-        parametersBool = new Dictionary<int, bool>();
-        parametersChar = new Dictionary<int, char>();
-        parametersFloat = new Dictionary<int, float>();
-        parametersInt = new Dictionary<int, int>();
-        parametersKey = new Dictionary<int, KeyCode>();
-        parametersQuaternion = new Dictionary<int, Quaternion>();
-        parametersKey = new Dictionary<int, KeyCode>();
-    }
 
     #region Save&load parameters
     public void LoadParameters()
     {
         using (StreamReader sr = File.OpenText("config.json"))
         {
-            Config cfg = JsonUtility.FromJson<Config>(sr.ReadToEnd());
+            Config cfg = JsonConvert.DeserializeObject<Config>(sr.ReadToEnd());
             nameID = cfg.nameID;
             parameters = cfg.parameters;
             parametersBool = cfg.parametersBool;
@@ -53,7 +41,7 @@ public class Config
     {
         using (StreamWriter sw = new StreamWriter("config.json"))
         {
-            sw.Write(JsonUtility.ToJson(this));
+            sw.Write(JsonConvert.SerializeObject(this));
         }
     }
     #endregion
@@ -489,7 +477,7 @@ public class Config
     }
     public void AddParameter(string name, Type type)
     {
-        int id = (int) new System.Random().NextDouble() * 1000; // 5-значный ID
+        int id = new System.Random().Next(0, 99999); // 5-значный ID
         if (parameters.ContainsKey(id))
             AddParameter(name, type);
         else
@@ -497,7 +485,7 @@ public class Config
     }
     public void AddParameter(string name, object value)
     {
-        int id = (int)new System.Random().NextDouble() * 1000; // 5-значный ID
+        int id = new System.Random().Next(0, 99999); // 5-значный ID
         if (parameters.ContainsKey(id))
             AddParameter(name, value);
         else
